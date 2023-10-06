@@ -34,6 +34,7 @@ class UserboardActivity : AppCompatActivity(), UserboardClickListener
         binding.newUserButton.setOnClickListener{
             NewUserSheetFragment(null).show(supportFragmentManager, "newUserTag")
         }
+
         // De recyclerview instellen voor het weergeven van gebruikers
         setRecyclerView()
     }
@@ -56,5 +57,12 @@ class UserboardActivity : AppCompatActivity(), UserboardClickListener
     {
         // Een nieuw gebruikersvenster weergeven voor het bewerken van de gebruiker
         NewUserSheetFragment(user).show(supportFragmentManager, "newUserTag")
+    }
+
+    override fun deleteUser(user: User) {
+        // Hier kun je de logica toevoegen om de gebruiker te verwijderen.
+        // Je kunt bijvoorbeeld een dialoogvenster tonen om de verwijdering te bevestigen.
+        // En vervolgens de gebruiker verwijderen via de ViewModel en Repository.
+        userViewModel.deleteUser(user)
     }
 }

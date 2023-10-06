@@ -28,11 +28,10 @@ class UserViewModel(private val repository: UserRepository): ViewModel() {
         }
     }
 
-    // Functie om een gebruiker te verwijderen uit de database
-    // Deze is momenteel uitgeschakeld (commented) maar kan worden gebruikt voor verwijderen van een gebruiker
-    // fun deleteUser(user: User) {
-    //     viewModelScope.launch(Dispatchers.IO) {
-    //         repository.deleteUser(user)
-    //     }
-    // }
+//     Functie om een gebruiker te verwijderen uit de database
+     fun deleteUser(user: User) {
+         viewModelScope.launch(Dispatchers.IO) {
+             repository.deleteUser(user)
+         }
+     }
 }

@@ -9,30 +9,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="132dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username"
-            android:text="place_holder"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_marginHorizontal="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/password"
-            android:text="place_holder"
-            android:inputType="textPassword"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:layout_gravity="center"
-            />
+            <TextView
+                android:id="@+id/username"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="place_holder" />
+
+            <TextView
+                android:id="@+id/password"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:inputType="textPassword"
+                android:text="place_holder" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/deleteUserButton"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:src="@drawable/baseline_delete_24" />
 
     </LinearLayout>
 
