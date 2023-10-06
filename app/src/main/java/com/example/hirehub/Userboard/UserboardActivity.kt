@@ -2,6 +2,8 @@ package com.example.hirehub.Userboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,15 +33,26 @@ class UserboardActivity : AppCompatActivity(), UserboardClickListener
         setContentView(binding.root)
 
         // Een click listener instellen voor de knop die wordt gebruikt om een nieuwe gebruiker toe te voegen
-        binding.newUserButton.setOnClickListener{
+        binding.newUserButton.setOnClickListener {
             NewUserSheetFragment(null).show(supportFragmentManager, "newUserTag")
         }
 
         // De recyclerview instellen voor het weergeven van gebruikers
         setRecyclerView()
+
+        binding.searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val query = s.toString().trim()
+                (binding.UserBoardRecyclerView.adapter as UserboardAdapter).filterUsers(query)
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
-    // Functie om de recyclerview in te stellen
+        // Functie om de recyclerview in te stellen
     private fun setRecyclerView()
     {
         val UserboardActivity = this
