@@ -9,40 +9,57 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:orientation="horizontal" >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/titleuser"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="text"
-            android:text="User:"
-            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:hint="Search Users" />
 
-        <EditText
-            android:id="@+id/titlepassword"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="text"
-            android:text="Password:"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/titleuser"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="text"
+                android:text="User:"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/titlepassword"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="text"
+                android:text="Password:"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/UserBoardRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="668dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/design_default_color_background" />
+
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/UserBoardRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="668dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/design_default_color_background" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
