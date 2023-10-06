@@ -36,7 +36,7 @@ class NewUserSheetFragment(var user: User?) : BottomSheetDialogFragment() {
 
         // ViewModel aanmaken voor gebruikersacties
         userViewModel = ViewModelProvider(activity).get(UserViewModel::class.java)
-        binding.saveButton.setOnClickListener {
+        binding.saveUserButton.setOnClickListener {
             saveAction()
         }
     }

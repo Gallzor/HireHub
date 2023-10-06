@@ -21,5 +21,9 @@ class UserboardViewHolder(
         binding.userCellContainer.setOnClickListener {
             clickListener.editUser(user)
         }
+
+        binding.deleteUserButton.setOnClickListener {
+            clickListener.deleteUser(user)
+        }
     }
 }
