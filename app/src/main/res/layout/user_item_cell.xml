@@ -13,18 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:scaleY="1.5"
-            android:scaleX="1.5"
-            android:contentDescription="checkbox"
-            android:id="@+id/completeButton"
-            android:layout_marginHorizontal="15dp"
-            android:backgroundTint="@android:color/transparent"
-            />
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,6 +29,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/password"
             android:text="place_holder"
+            android:inputType="textPassword"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_gravity="center"
             />
