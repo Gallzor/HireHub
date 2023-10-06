@@ -59,10 +59,8 @@ class UserboardActivity : AppCompatActivity(), UserboardClickListener
         NewUserSheetFragment(user).show(supportFragmentManager, "newUserTag")
     }
 
+    // Een nieuw gebruikersvenster weergeven voor het verwijderen van de gebruiker
     override fun deleteUser(user: User) {
-        // Hier kun je de logica toevoegen om de gebruiker te verwijderen.
-        // Je kunt bijvoorbeeld een dialoogvenster tonen om de verwijdering te bevestigen.
-        // En vervolgens de gebruiker verwijderen via de ViewModel en Repository.
-        userViewModel.deleteUser(user)
+        DeleteUserSheetFragment(user).show(supportFragmentManager, "deleteUserTag")
     }
 }
