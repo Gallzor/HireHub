@@ -1,60 +1,69 @@
 package com.example.hirehub.Userboard
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hirehub.R
+import androidx.lifecycle.ViewModelProvider
+import com.example.hirehub.databinding.FragmentNewUserSheetBinding
+import com.example.hirehub.models.User
+import com.example.hirehub.viewmodels.UserViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+//Afhankelijk van of de gebruiker wordt bewerkt of een nieuwe gebruiker wordt toegevoegd,
+// wordt de titel van het bottom sheet en de tekstvelden dienovereenkomstig ingesteld.
 
-/**
- * A simple [Fragment] subclass.
- * Use the [NewUserSheetFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class NewUserSheetFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class NewUserSheetFragment(var user: User?) : BottomSheetDialogFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var binding: FragmentNewUserSheetBinding
+    private lateinit var userViewModel: UserViewModel
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val activity = requireActivity()
+
+        // Instellingen voor de weergave op basis van het bewerken van een bestaande gebruiker of het toevoegen van een nieuwe gebruiker
+        if (user != null) {
+            binding.userTitle.text = "Edit User"
+            val editable = Editable.Factory.getInstance()
+            binding.username.text = editable.newEditable(user!!.username)
+            binding.password.text = editable.newEditable(user!!.password)
+        } else {
+            binding.userTitle.text = "New User"
+        }
+
+        // ViewModel aanmaken voor gebruikersacties
+        userViewModel = ViewModelProvider(activity).get(UserViewModel::class.java)
+        binding.saveButton.setOnClickListener {
+            saveAction()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_user_sheet, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentNewUserSheetBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NewUserSheetFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            NewUserSheetFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    // Functie voor het opslaan van een nieuwe gebruiker of bijwerken van een bestaande gebruiker
+    private fun saveAction() {
+        val username = binding.username.text.toString()
+        val password = binding.password.text.toString()
+        if (user == null) {
+            // Nieuwe gebruiker aanmaken en toevoegen aan de database
+            val newUser = User(username, password)
+            userViewModel.addUser(newUser)
+        } else {
+            // Bestaande gebruiker bijwerken met de nieuwe gegevens
+            user!!.username = username
+            user!!.password = password
+            userViewModel.updateUser(user!!)
+        }
+
+        // Tekstvelden legen en het bottom sheet sluiten
+        binding.username.setText("")
+        binding.password.setText("")
+        dismiss()
     }
 }

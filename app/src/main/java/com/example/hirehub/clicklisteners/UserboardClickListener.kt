@@ -1,4 +1,8 @@
 package com.example.hirehub.clicklisteners
 
-interface UserboardClickListener {
+import com.example.hirehub.models.User
+
+interface UserboardClickListener
+{
+    fun editUser(user: User)
 }
