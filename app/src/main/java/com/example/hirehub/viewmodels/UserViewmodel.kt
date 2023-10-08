@@ -9,6 +9,7 @@ import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 
 class UserViewModel(private val repository: UserRepository): ViewModel() {
+
     // LiveData voor het observeren van de lijst met gebruikers
     var users: LiveData<List<User>> = repository.allUsers
 
