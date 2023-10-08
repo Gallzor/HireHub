@@ -37,14 +37,14 @@
             android:text="Userboard" />
 
         <Button
-            android:id="@+id/placeholderButton"
+            android:id="@+id/profileButton"
             android:layout_width="302dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
-            android:text="Go to ?" />
+            android:text="Profileboard" />
 
         <Button
             android:id="@+id/userboardButton3"
