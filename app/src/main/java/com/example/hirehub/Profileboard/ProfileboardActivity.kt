@@ -33,7 +33,7 @@ class ProfileboardActivity : AppCompatActivity(), ProfileboardClickListener
 
         // Een click listener instellen voor de knop die wordt gebruikt om een nieuw profiel toe te voegen
         binding.newProfileButton.setOnClickListener {
-            NewProfileSheetFragment(null).show(supportFragmentManager, "newProfileTag")
+            NewProfileSheetFragment(profile = null).show(supportFragmentManager, "newProfileTag")
         }
 
         // De recyclerview instellen voor het weergeven van profielen

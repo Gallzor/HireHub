@@ -1,6 +1,7 @@
 package com.example.hirehub.Profileboard
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,20 +11,28 @@ import com.example.hirehub.models.Profile
 import com.example.hirehub.viewmodels.ProfileViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment() {
+class EditProfileSheetFragment(private val profile: Profile) : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentNewProfileSheetBinding
     private lateinit var profileViewModel: ProfileViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val activity = requireActivity()
 
-        // Instellingen voor de weergave op basis van het bewerken van een bestaande profiel of het toevoegen van een nieuwe profiel
-        binding.profileboardTitle.text = "New Profile"
+        binding.profileboardTitle.text = "Edit Profile"
+
+        val editable = Editable.Factory.getInstance()
+        binding.firstName.text = editable.newEditable(profile.firstname)
+        binding.lastName.text = editable.newEditable(profile.lastname)
+        binding.city.text = editable.newEditable(profile.city)
+        binding.age.text = editable.newEditable(profile.age)
+        binding.email.text = editable.newEditable(profile.email)
+        binding.certificate.text = editable.newEditable(profile.certificate)
+        binding.skillOne.text = editable.newEditable(profile.skillOne)
+        binding.mobileNumber.text = editable.newEditable(profile.mobileNumber)
 
         // ViewModel aanmaken voor profielsacties
-        profileViewModel = ViewModelProvider(activity).get(ProfileViewModel::class.java)
+        profileViewModel = ViewModelProvider(requireActivity()).get(ProfileViewModel::class.java)
         binding.saveProfileButton.setOnClickListener {
             saveAction()
         }
@@ -34,30 +43,36 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
         return binding.root
     }
 
-    // Functie voor het opslaan van een nieuwe profiel
     private fun saveAction() {
         val firstname = binding.firstName.text.toString()
         val lastname = binding.lastName.text.toString()
         val city = binding.city.text.toString()
         val age = binding.age.text.toString()
-        val skillOne = binding.skillOne.text.toString()
-        val certificate = binding.certificate.text.toString()
-        val email = binding.email.text.toString()
         val mobilenumber = binding.mobileNumber.text.toString()
+        val certificate = binding.certificate.text.toString()
+        val skillone = binding.skillOne.text.toString()
+        val email = binding.email.text.toString()
 
-        // Nieuw profiel aanmaken en toevoegen aan de database
-        val newProfile = Profile(firstname, lastname, city, age, skillOne, certificate, email, mobilenumber)
-        profileViewModel.addProfile(newProfile)
+        // Bestaande profiel bijwerken met de nieuwe gegevens
+        profile.firstname = firstname
+        profile.lastname = lastname
+        profile.city = city
+        profile.age = age
+        profile.email = email
+        profile.mobileNumber = mobilenumber
+        profile.certificate = certificate
+        profile.skillOne = skillone
+        profileViewModel.updateProfile(profile)
 
         // Tekstvelden legen en het bottom sheet sluiten
         binding.firstName.setText("")
         binding.lastName.setText("")
         binding.city.setText("")
-        binding.age.setText("")
-        binding.skillOne.setText("")
-        binding.certificate.setText("")
         binding.email.setText("")
         binding.mobileNumber.setText("")
+        binding.certificate.setText("")
+        binding.skillOne.setText("")
+        binding.age.setText("")
         dismiss()
     }
 }

@@ -15,7 +15,8 @@
         tools:targetApi="31">
         <activity
             android:name=".Profileboard.ProfileboardActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".Userboard.UserboardActivity"
             android:exported="false" />
