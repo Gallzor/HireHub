@@ -1,6 +1,5 @@
 package com.example.hirehub.models
 
-import android.location.Address
 import android.provider.ContactsContract.CommonDataKinds.Email
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -8,8 +7,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "profiles")
 data class Profile(
-    @ColumnInfo(name = "firstName") var firstname: String? = null,
-    @ColumnInfo(name = "lastName") var lastname: String? = null,
+    @ColumnInfo(name = "firstName") var firstname: String,
+    @ColumnInfo(name = "lastName") var lastname: String,
     @ColumnInfo(name = "city") var city: String? = null,
     @ColumnInfo(name = "email") var email: Email? = null,
     @ColumnInfo(name = "age") var age: Int? = null,

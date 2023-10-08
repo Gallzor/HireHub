@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Hirehub"
         tools:targetApi="31">
         <activity
+            android:name=".Profileboard.ProfileboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".Userboard.UserboardActivity"
             android:exported="false" />
         <activity
