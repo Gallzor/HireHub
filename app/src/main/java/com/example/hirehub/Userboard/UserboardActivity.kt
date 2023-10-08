@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hirehub.adapters.UserboardAdapter
 import com.example.hirehub.clicklisteners.UserboardClickListener
@@ -15,6 +14,7 @@ import com.example.hirehub.factories.UserModelFactory
 import com.example.hirehub.models.User
 import com.example.hirehub.viewmodels.UserViewModel
 
+
 class UserboardActivity : AppCompatActivity(), UserboardClickListener
 {
     // Binding voor de activity layout
@@ -23,7 +23,7 @@ class UserboardActivity : AppCompatActivity(), UserboardClickListener
     // ViewModel instantie verkrijgen met behulp van de ViewModelProvider en UserModelFactory
     // Het wordt geïnstantieerd op een luie manier, wat betekent dat het alleen wordt aangemaakt wanneer het nodig is
     private val userViewModel: UserViewModel by viewModels {
-        UserModelFactory((application as HireHubApplication).repository)
+        UserModelFactory((application as HireHubApplication).userRepository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

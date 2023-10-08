@@ -2,68 +2,67 @@ package com.example.hirehub.Profileboard
 
 import android.os.Bundle
 import android.text.Editable
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.hirehub.databinding.FragmentNewUserSheetBinding
-import com.example.hirehub.models.User
-import com.example.hirehub.viewmodels.UserViewModel
+import com.example.hirehub.databinding.FragmentNewProfileSheetBinding
+import com.example.hirehub.models.Profile
+import com.example.hirehub.viewmodels.ProfileViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-//Afhankelijk van of de gebruiker wordt bewerkt of een nieuwe gebruiker wordt toegevoegd,
+//Afhankelijk van of de profiel wordt bewerkt of een nieuwe profiel wordt toegevoegd,
 // wordt de titel van het bottom sheet en de tekstvelden dienovereenkomstig ingesteld.
 
-class NewProfileSheetFragment(var user: User?) : BottomSheetDialogFragment() {
+class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentNewUserSheetBinding
-    private lateinit var userViewModel: UserViewModel
+    private lateinit var binding: FragmentNewProfileSheetBinding
+    private lateinit var profileViewModel: ProfileViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity()
 
-        // Instellingen voor de weergave op basis van het bewerken van een bestaande gebruiker of het toevoegen van een nieuwe gebruiker
-        if (user != null) {
-            binding.userTitle.text = "Edit User"
+        // Instellingen voor de weergave op basis van het bewerken van een bestaande profiel of het toevoegen van een nieuwe profiel
+        if (profile != null) {
+            binding.profileboardTitle.text = "Edit Profile"
             val editable = Editable.Factory.getInstance()
-            binding.username.text = editable.newEditable(user!!.username)
-            binding.password.text = editable.newEditable(user!!.password)
+            binding.firstName.text = editable.newEditable(profile!!.firstname)
+            binding.lastName.text = editable.newEditable(profile!!.lastname)
         } else {
-            binding.userTitle.text = "New User"
+            binding.profileboardTitle.text = "New Profile"
         }
 
-        // ViewModel aanmaken voor gebruikersacties
-        userViewModel = ViewModelProvider(activity).get(UserViewModel::class.java)
-        binding.saveUserButton.setOnClickListener {
+        // ViewModel aanmaken voor profielsacties
+        profileViewModel = ViewModelProvider(activity).get(ProfileViewModel::class.java)
+        binding.saveProfileButton.setOnClickListener {
             saveAction()
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentNewUserSheetBinding.inflate(inflater, container, false)
+        binding = FragmentNewProfileSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    // Functie voor het opslaan van een nieuwe gebruiker of bijwerken van een bestaande gebruiker
+    // Functie voor het opslaan van een nieuwe profiel of bijwerken van een bestaande profiel
     private fun saveAction() {
-        val username = binding.username.text.toString()
-        val password = binding.password.text.toString()
-        if (user == null) {
-            // Nieuwe gebruiker aanmaken en toevoegen aan de database
-            val newUser = User(username, password)
-            userViewModel.addUser(newUser)
+        val firstname = binding.firstName.text.toString()
+        val lastname = binding.lastName.text.toString()
+        if (profile == null) {
+            // Nieuwe profiel aanmaken en toevoegen aan de database
+            val newProfile = Profile(firstname, lastname)
+            profileViewModel.addProfile(newProfile)
         } else {
-            // Bestaande gebruiker bijwerken met de nieuwe gegevens
-            user!!.username = username
-            user!!.password = password
-            userViewModel.updateUser(user!!)
+            // Bestaande profiel bijwerken met de nieuwe gegevens
+            profile!!.firstname = firstname
+            profile!!.lastname = lastname
+            profileViewModel.updateProfile(profile!!)
         }
 
         // Tekstvelden legen en het bottom sheet sluiten
-        binding.username.setText("")
-        binding.password.setText("")
+        binding.firstName.setText("")
+        binding.lastName.setText("")
         dismiss()
     }
 }
