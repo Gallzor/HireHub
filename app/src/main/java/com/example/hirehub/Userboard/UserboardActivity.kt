@@ -11,6 +11,7 @@ import com.example.hirehub.clicklisteners.UserboardClickListener
 import com.example.hirehub.databases.HireHubApplication
 import com.example.hirehub.databinding.ActivityUserboardBinding
 import com.example.hirehub.factories.ProfileModelFactory
+import com.example.hirehub.factories.UserModelFactory
 import com.example.hirehub.models.User
 import com.example.hirehub.viewmodels.UserViewModel
 
@@ -22,7 +23,7 @@ class UserboardActivity : AppCompatActivity(), UserboardClickListener
     // ViewModel instantie verkrijgen met behulp van de ViewModelProvider en UserModelFactory
     // Het wordt geïnstantieerd op een luie manier, wat betekent dat het alleen wordt aangemaakt wanneer het nodig is
     private val userViewModel: UserViewModel by viewModels {
-        ProfileModelFactory((application as HireHubApplication).profileRepository)
+        UserModelFactory((application as HireHubApplication).userRepository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
