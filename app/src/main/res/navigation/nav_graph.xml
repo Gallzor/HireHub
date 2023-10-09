@@ -65,4 +65,9 @@
             android:id="@+id/action_newUserSheetFragment_to_userboardActivity"
             app:destination="@id/userboardActivity" />
     </dialog>
+    <activity
+        android:id="@+id/registrationActivity"
+        android:name="com.example.hirehub.RegistrationActivity"
+        android:label="activity_registration"
+        tools:layout="@layout/activity_registration" />
 </navigation>
