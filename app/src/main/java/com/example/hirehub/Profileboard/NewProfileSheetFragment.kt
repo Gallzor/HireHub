@@ -2,6 +2,7 @@ package com.example.hirehub.Profileboard
 
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,15 +27,16 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
         // Instellingen voor de weergave op basis van het bewerken van een bestaand profiel of het toevoegen van een nieuw profiel
         if (profile != null) {
             binding.profileTitle.text = "Edit Profile"
-            val editable = Editable.Factory.getInstance()
-            binding.firstName.text = editable.newEditable(profile!!.firstname)
-            binding.lastName.text = editable.newEditable(profile!!.lastname)
+            binding.firstName.setText(profile!!.firstname)
+            binding.lastName.setText(profile!!.lastname)
+            binding.city.setText(profile!!.city ?: "") // Zorg ervoor dat null wordt behandeld
+            binding.age.setText(profile!!.age ?: "")
         } else {
             binding.profileTitle.text = "New Profile"
         }
 
         // ViewModel aanmaken voor gebruikersacties
-        profileViewModel = ViewModelProvider(activity).get(ProfileViewModel::class.java)
+        profileViewModel = ViewModelProvider(requireActivity()).get(ProfileViewModel::class.java)
         binding.saveProfileButton.setOnClickListener {
             saveAction()
         }
@@ -49,20 +51,29 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
     private fun saveAction() {
         val firstname = binding.firstName.text.toString()
         val lastname = binding.lastName.text.toString()
+        val age = binding.age.text.toString()
+        val city = binding.city.text.toString()
+
+        Log.d("NewProfileSheetFragment", "First name: $firstname")
+        Log.d("NewProfileSheetFragment", "Last name: $lastname")
+        Log.d("NewProfileSheetFragment", "City: $city")
+        Log.d("NewProfileSheetFragment", "Age: $age")
+
         if (profile == null) {
-            // Nieuw profiel aanmaken en toevoegen aan de database
-            val newProfile = Profile(firstname, lastname)
+            val newProfile = Profile(firstname, lastname, city, null, age, null, null, null, null, true, 0)
             profileViewModel.addProfile(newProfile)
         } else {
-            // Bestaand profiel bijwerken met de nieuwe gegevens
-            profile!!.firstname = firstname
-            profile!!.lastname = lastname
+            profile!!.firstname = firstname ?: ""
+            profile!!.lastname = lastname ?: ""
+            profile!!.age = age ?: ""
+            profile!!.city = city ?: ""
             profileViewModel.updateProfile(profile!!)
         }
 
-        // Tekstvelden legen en het bottom sheet sluiten
         binding.firstName.setText("")
         binding.lastName.setText("")
+        binding.age.setText("")
+        binding.city.setText("")
         dismiss()
     }
 }
