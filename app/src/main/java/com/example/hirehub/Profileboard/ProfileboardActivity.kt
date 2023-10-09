@@ -50,6 +50,12 @@ class ProfileboardActivity : AppCompatActivity(), ProfileboardClickListener
             NewProfileSheetFragment(null).show(supportFragmentManager, "newProfileTag")
         }
 
+        // Koppelen van klikactie aan de newProfileBackButton
+        binding.newProfileBackButton.setOnClickListener {
+            // Teruggaan naar het vorige scherm
+            finish()
+        }
+
         // De recyclerview instellen voor het weergeven van profielen
         setRecyclerView()
 

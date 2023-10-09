@@ -38,6 +38,7 @@ class landingtestFragment : Fragment() {
             // Starten van ProfileboardActivity wanneer de button wordt geklikt
             val intent = Intent(requireActivity(), ProfileboardActivity::class.java)
             startActivity(intent)
+
         }
     }
 
