@@ -2,40 +2,40 @@ package com.example.hirehub.repositories
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import com.example.hirehub.daos.UserDao
-import com.example.hirehub.models.User
+import com.example.hirehub.daos.ProfileDao
+import com.example.hirehub.models.Profile
 
-class ProfileRepository (private val userDao: UserDao) {
+class ProfileRepository (private val profileDao: ProfileDao) {
 
-    // LiveData voor het observeren van de lijst met alle gebruikers
-    val allUsers: LiveData<List<User>> = userDao.allUsers()
+    // LiveData voor het observeren van de lijst met alle profielen
+    val allProfiles: LiveData<List<Profile>> = profileDao.allProfiles()
 
     /**
-     * Voegt een nieuwe gebruiker toe aan de database.
-     * @param user De gebruiker die moet worden toegevoegd.
+     * Voegt een nieuw profiel toe aan de database.
+     * @param profile Het profiel die moet worden toegevoegd.
      */
     @WorkerThread
     //Dit is een annotatie die aangeeft dat de annotatie ervoor zorgt dat de functies die worden aangeroepen, uitgevoerd worden op een aparte achtergrondthread (niet op de main/UI-thread).
     // Dit is belangrijk om te voorkomen dat de UI bevriest of vertraagt bij zware taken.
-    fun insertUser(user: User) {
-        userDao.insertUser(user)
+    fun insertProfile(profile: Profile) {
+        profileDao.insertProfile(profile)
     }
 
     /**
-     * Werkt de gegevens van een bestaande gebruiker bij in de database.
-     * @param user De gebruiker met bijgewerkte gegevens.
+     * Werkt de gegevens van een bestaande profiel bij in de database.
+     * @param profile Het profiel met bijgewerkte gegevens.
      */
     @WorkerThread
-    fun updateUser(user: User) {
-        userDao.updateUser(user)
+    fun updateProfile(profile: Profile) {
+        profileDao.updateProfile(profile)
     }
 
     /**
-     * Verwijdert een gebruiker uit de database.
-     * @param user De gebruiker die moet worden verwijderd.
+     * Verwijdert een profiel uit de database.
+     * @param profile Het profiel die moet worden verwijderd.
      */
     @WorkerThread
-    fun deleteUser(user: User) {
-        userDao.deleteUser(user)
+    fun deleteProfile(profile: Profile) {
+        profileDao.deleteProfile(profile)
     }
 }

@@ -3,35 +3,36 @@ package com.example.hirehub.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hirehub.models.Profile
 import com.example.hirehub.models.User
-import com.example.hirehub.repositories.UserRepository
+import com.example.hirehub.repositories.ProfileRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ProfileViewModel(private val repository: UserRepository): ViewModel() {
-    // LiveData voor het observeren van de lijst met gebruikers
-    var users: LiveData<List<User>> = repository.allUsers
+class ProfileViewModel(private val repository: ProfileRepository): ViewModel() {
+    // LiveData voor het observeren van de lijst met profielen
+    var profiles: LiveData<List<Profile>> = repository.allProfiles
 
-    // Functie om een nieuwe gebruiker toe te voegen aan de database
-    fun addUser(newUser: User) {
+    // Functie om een nieuw profiel toe te voegen aan de database
+    fun addProfile(newProfile: Profile) {
         // Coroutine starten op IO-thread voor asynchrone databasebewerking
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insertUser(newUser)
+            repository.insertProfile(newProfile)
         }
     }
 
-    // Functie om een bestaande gebruiker bij te werken in de database
-    fun updateUser(user: User) {
+    // Functie om een bestaande profiel bij te werken in de database
+    fun updateProfile(profile: Profile) {
         // Coroutine starten op IO-thread voor asynchrone databasebewerking
         viewModelScope.launch(Dispatchers.IO) {
-            repository.updateUser(user)
+            repository.updateProfile(profile)
         }
     }
 
-    //     Functie om een gebruiker te verwijderen uit de database
-    fun deleteUser(user: User) {
+    //     Functie om een profiel te verwijderen uit de database
+    fun deleteProfile(profile: Profile) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteUser(user)
+            repository.deleteProfile(profile)
         }
     }
 }

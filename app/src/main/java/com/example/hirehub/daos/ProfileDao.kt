@@ -1,27 +1,29 @@
 package com.example.hirehub.daos
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.hirehub.models.User
+import com.example.hirehub.models.Profile
 
-class ProfileDao {
-    // Haalt alle gebruikers op uit de database en geeft ze terug als LiveData
-    @Query("SELECT * FROM users ORDER BY id ASC")
-    fun allUsers(): LiveData<List<User>>
+@Dao
+interface ProfileDao {
+    // Haalt alle profielen op uit de database en geeft ze terug als LiveData
+    @Query("SELECT * FROM profiles ORDER BY id ASC")
+    fun allProfiles(): LiveData<List<Profile>>
 
-    // Voegt een nieuwe gebruiker toe aan de database
+    // Voegt een nieuwe profiel toe aan de database
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUser(user: User)
+    fun insertProfile(profile: Profile)
 
-    // Werkt een bestaande gebruiker bij in de database
+    // Werkt een bestaande profiel bij in de database
     @Update
-    fun updateUser(user: User)
+    fun updateProfile(profile: Profile)
 
-    // Verwijdert een gebruiker uit de database
+    // Verwijdert een profiel de database
     @Delete
-    fun deleteUser(user: User)
+    fun deleteProfile(profile: Profile)
 }

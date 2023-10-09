@@ -53,7 +53,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/UserBoardRecyclerView"
+            android:id="@+id/ProfileBoardRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="668dp"
             android:layout_marginStart="20dp"
@@ -65,8 +65,8 @@
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New User"
-        android:id="@+id/newUserButton"
+        android:text="New Profile"
+        android:id="@+id/newProfileButton"
         android:backgroundTint="?attr/colorPrimary"
         android:textColor="?colorOnPrimary"
         android:layout_alignParentBottom="true"

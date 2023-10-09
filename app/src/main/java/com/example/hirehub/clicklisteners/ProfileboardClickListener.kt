@@ -1,9 +1,10 @@
 package com.example.hirehub.clicklisteners
 
-import com.example.hirehub.models.User
+import com.example.hirehub.models.Profile
 
-class ProfileboardClickListener
+interface ProfileboardClickListener
 {
-    fun editUser(user: User)
-    fun deleteUser(user: User)
+    fun editProfile(profile: Profile)
+    fun deleteProfile(profile: Profile)
+
 }
