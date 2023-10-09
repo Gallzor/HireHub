@@ -37,6 +37,12 @@ class UserboardActivity : AppCompatActivity(), UserboardClickListener
             NewUserSheetFragment(null).show(supportFragmentManager, "newUserTag")
         }
 
+        // Koppelen van klikactie aan de newProfileBackButton
+        binding.newUserBackButton.setOnClickListener {
+            // Teruggaan naar het vorige scherm
+            finish()
+        }
+
         // De recyclerview instellen voor het weergeven van gebruikers
         setRecyclerView()
 
