@@ -43,4 +43,15 @@ class UserRepository(private val userDao: UserDao) {
     fun deleteUser(user: User) {
         userDao.deleteUser(user)
     }
+    /**
+     * Zoek een gebruiker op basis van de gebruikersnaam.
+     * @param username De gebruikersnaam om naar te zoeken.
+     * @return De gevonden gebruiker of null als er geen overeenkomst is.
+     */
+    @WorkerThread
+    fun getUserByUsernameAndPassword(username: String, password: String): User? {
+        return userDao.getUserByUsername(username)
+            ?.takeIf { it.password == password }
+    }
+
 }

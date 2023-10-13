@@ -22,4 +22,8 @@ interface UserDao {
     // Verwijdert een gebruiker uit de database
     @Delete
     fun deleteUser(user: User)
+
+    @Query("SELECT * FROM users WHERE username = :username")
+    fun getUserByUsername(username: String): User?
+
 }

@@ -1,11 +1,11 @@
 package com.example.hirehub
 
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import android.content.Intent
 import com.example.hirehub.databases.HireHubApplication
 import com.example.hirehub.models.User
 import kotlinx.coroutines.CoroutineScope
@@ -34,8 +34,12 @@ class RegistrationActivity : AppCompatActivity() {
                 CoroutineScope(Dispatchers.IO).launch {
                     val newUser = User(username, password)
                     saveUser(newUser)
+
+                    runOnUiThread {
+                        Toast.makeText(this@RegistrationActivity, "Registratie succesvol!", Toast.LENGTH_SHORT).show()
+                        navigateToLogin()
+                    }
                 }
-                Toast.makeText(this, "Registratie succesvol!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Vul alle velden correct in.", Toast.LENGTH_SHORT).show()
             }
@@ -52,4 +56,9 @@ class RegistrationActivity : AppCompatActivity() {
         userRepository.insertUser(user)
     }
 
+    private fun navigateToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish() // Optioneel: sluit de huidige registratieactiviteit
+    }
 }
