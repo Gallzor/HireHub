@@ -47,14 +47,15 @@
             android:text="Profileboard" />
 
         <Button
-            android:id="@+id/placeholderButton"
-            android:layout_width="306dp"
+            android:id="@+id/registrationButton"
+            android:layout_width="302dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
-            android:text="Go to ?" />
+            android:text="Registreren" />
+
     </LinearLayout>
 
 </FrameLayout>

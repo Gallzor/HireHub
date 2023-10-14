@@ -40,6 +40,13 @@ class landingtestFragment : Fragment() {
             startActivity(intent)
 
         }
+        // Koppelen van klikactie aan de RegistratieButton
+        binding.registrationButton.setOnClickListener {
+            // Starten van RegistationActivity wanneer de button wordt geklikt
+            val intent = Intent(requireActivity(), RegistrationActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 
     override fun onDestroyView() {
