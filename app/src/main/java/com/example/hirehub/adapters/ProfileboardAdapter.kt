@@ -36,4 +36,5 @@ class ProfileboardAdapter (
         holder.bindProfile(filteredProfiles[position])
     }
 
+
 }

@@ -6,5 +6,5 @@ interface ProfileboardClickListener
 {
     fun editProfile(profile: Profile)
     fun deleteProfile(profile: Profile)
-
+    fun toggleVisibility(profile: Profile)
 }

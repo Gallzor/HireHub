@@ -2,6 +2,7 @@ package com.example.hirehub.viewholders
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hirehub.R
 import com.example.hirehub.clicklisteners.ProfileboardClickListener
 import com.example.hirehub.databinding.ProfileboardItemCellBinding
 import com.example.hirehub.models.Profile
@@ -24,6 +25,14 @@ class ProfileboardViewHolder(
 
         binding.deleteProfileboardButton.setOnClickListener {
             clickListener.deleteProfile(profile)
+        }
+
+        // Toggle visibility button
+        binding.visibilityProfileboardButton.apply {
+            setImageResource(if (profile.isVisible) R.drawable.ic_eye_open else R.drawable.ic_eye_closed)
+            setOnClickListener {
+                clickListener.toggleVisibility(profile)
+            }
         }
     }
 }
