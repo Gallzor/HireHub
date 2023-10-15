@@ -35,4 +35,12 @@ class ProfileViewModel(private val repository: ProfileRepository): ViewModel() {
             repository.deleteProfile(profile)
         }
     }
+
+    //  Functie om de zichtbaarheid van een profiel in de profileboard te veranderen
+    fun toggleProfileVisibility(profile: Profile) {
+        viewModelScope.launch(Dispatchers.IO) {
+            profile.isVisible = !profile.isVisible
+            repository.updateProfile(profile)
+        }
+    }
 }
