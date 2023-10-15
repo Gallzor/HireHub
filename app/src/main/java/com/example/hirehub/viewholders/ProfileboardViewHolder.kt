@@ -22,7 +22,7 @@ class ProfileboardViewHolder(
             clickListener.editProfile(profile)
         }
 
-        binding.deleteProfileButton.setOnClickListener {
+        binding.deleteProfileboardButton.setOnClickListener {
             clickListener.deleteProfile(profile)
         }
     }

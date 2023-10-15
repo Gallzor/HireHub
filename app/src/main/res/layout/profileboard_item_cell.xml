@@ -39,12 +39,33 @@
 
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/deleteProfileButton"
-            android:layout_width="50dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_gravity="right"
-            android:src="@drawable/baseline_delete_24" />
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/visibilityProfileboardButton"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_gravity="left"
+                android:layout_marginStart="20dp"
+                android:src="@android:drawable/ic_menu_view" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/deleteProfileboardButton"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="20dp"
+                android:foregroundGravity="right"
+                android:src="@drawable/baseline_delete_24" />
+        </LinearLayout>
 
     </LinearLayout>
 
