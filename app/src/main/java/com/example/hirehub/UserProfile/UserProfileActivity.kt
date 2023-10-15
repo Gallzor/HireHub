@@ -37,6 +37,9 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
 
         sessionManager = SessionManager(this)
 
+        // Laad het profiel van de ingelogde gebruiker
+        observeUserProfile()
+
         binding.newUserProfileButton.setOnClickListener {
             // Maak een nieuw profiel met de juiste gebruikers-ID
             val userId = sessionManager.getUserId()
@@ -59,9 +62,14 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
     private fun observeUserProfile() {
         val userId = sessionManager.getUserId()
         if (userId != null) {
+            // Observeren van het profiel van de ingelogde gebruiker
             profileViewModel.getProfileByUserId(userId).observe(this, Observer { profile ->
-                userProfile = profile
-                updateUIBasedOnUserProfile()
+                // Filter de profielen om alleen het profiel van de ingelogde gebruiker te tonen
+                val filteredProfiles = arrayListOf<Profile>()
+                if (profile != null) {
+                    filteredProfiles.add(profile)
+                }
+                updateUIBasedOnUserProfile(filteredProfiles)
             })
         }
     }
@@ -75,15 +83,17 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
         binding.titleWelcomeUserProfile.text = "Welkom, $username"
     }
 
-    private fun updateUIBasedOnUserProfile() {
-        if (userProfile == null) {
+    private fun updateUIBasedOnUserProfile(profiles: List<Profile>) {
+        if (profiles.isEmpty()) {
             binding.noProfileTextView.visibility = View.VISIBLE
             binding.UserProfileRecyclerView.visibility = View.GONE
             binding.noProfileTextView.text = "You don't have a profile yet."
         } else {
             binding.noProfileTextView.visibility = View.GONE
             binding.UserProfileRecyclerView.visibility = View.VISIBLE
-            // Voer hier de logica uit om het profiel weer te geven in de UI
+
+            // Update de RecyclerView met de profielen van de ingelogde gebruiker
+            binding.UserProfileRecyclerView.adapter = UserProfileAdapter(profiles, this)
         }
     }
 
