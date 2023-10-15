@@ -21,6 +21,12 @@ class ProfileViewModel(private val repository: ProfileRepository): ViewModel() {
         }
     }
 
+    // Functie om het profiel van de huidige ingelogde gebruiker op te halen
+    fun getProfileByUserId(userId: Int): LiveData<Profile?> {
+        return repository.getProfileByUserId(userId)
+    }
+
+
     // Functie om een bestaande profiel bij te werken in de database
     fun updateProfile(profile: Profile) {
         // Coroutine starten op IO-thread voor asynchrone databasebewerking

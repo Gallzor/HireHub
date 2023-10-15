@@ -1,17 +1,17 @@
 package com.example.hirehub.UserProfile
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.hirehub.Profileboard.DeleteProfileSheetFragment
 import com.example.hirehub.Profileboard.NewProfileSheetFragment
 import com.example.hirehub.adapters.ProfileboardAdapter
 import com.example.hirehub.clicklisteners.ProfileboardClickListener
 import com.example.hirehub.databases.HireHubApplication
-import com.example.hirehub.databinding.ActivityProfileboardBinding
 import com.example.hirehub.databinding.ActivityUserprofileBinding
 import com.example.hirehub.factories.ProfileModelFactory
 import com.example.hirehub.models.Profile
@@ -27,6 +27,8 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
         ProfileModelFactory((application as HireHubApplication).profileRepository)
     }
 
+    private var userProfile: Profile? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserprofileBinding.inflate(layoutInflater)
@@ -34,38 +36,72 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
 
         sessionManager = SessionManager(this)
 
+        // Een click listener instellen voor de knop die wordt gebruikt om een nieuw profiel toe te voegen
         binding.newUserProfileButton.setOnClickListener {
-            createNewProfile()
+            NewProfileSheetFragment(null).show(supportFragmentManager, "newProfileTag")
         }
 
-        binding.newUserProfileButton.setOnClickListener {
+        // Koppelen van klikactie aan de newProfileBackButton
+        binding.newUserProfileBackButton.setOnClickListener {
+            // Teruggaan naar het vorige scherm
             finish()
         }
+        // Laat username zien
+        showWelcomeProfileMessage()
 
         setRecyclerView()
+        observeUserProfile()
     }
-
-    private fun setRecyclerView() {
-        profileAdapter = ProfileboardAdapter(emptyList(), this)
-        binding.UserProfileRecyclerView.apply {
-            layoutManager = LinearLayoutManager(applicationContext)
-            adapter = profileAdapter
+    private fun observeUserProfile() {
+        val userId = sessionManager.getUserId()
+        if (userId != null) {
+            profileViewModel.getProfileByUserId(userId).observe(this, Observer { profile ->
+                userProfile = profile
+                updateUIBasedOnUserProfile()
+            })
         }
     }
 
-    private fun createNewProfile() {
-        // Hier kun je logica toevoegen om een nieuw profiel aan te maken
-        // Je kunt bijvoorbeeld een dialoogvenster weergeven of een nieuw fragment toevoegen
-        // waar de gebruiker de details van het nieuwe profiel kan invoeren.
-        NewProfileSheetFragment(null).show(supportFragmentManager, "newProfileTag")
+    private fun showWelcomeProfileMessage() {
+        // Haal de gebruikersnaam op uit de SessionManager
+        val sessionManager = SessionManager(this)
+        val username = sessionManager.getUsername() ?: "Gebruiker"
+
+        // Update de welkomsttekst met de gebruikersnaam in de UserProfile
+        binding.titleWelcomeUserProfile.text = "Welkom, $username"
+    }
+
+    private fun updateUIBasedOnUserProfile() {
+        if (userProfile == null) {
+            binding.noProfileTextView.visibility = View.VISIBLE
+            binding.UserProfileRecyclerView.visibility = View.GONE
+            binding.noProfileTextView.text = "You don't have a profile yet."
+        } else {
+            binding.noProfileTextView.visibility = View.GONE
+            binding.UserProfileRecyclerView.visibility = View.VISIBLE
+            // Voer hier de logica uit om het profiel weer te geven in de UI
+        }
+    }
+
+
+
+    private fun setRecyclerView() {
+        val UserProfileActivity = this
+        // Observeren van de profielenlijst in de ViewModel en het bijwerken van de RecyclerView-adapter wanneer er veranderingen zijn
+        profileViewModel.profiles.observe(this) {
+            binding.UserProfileRecyclerView.apply {
+                layoutManager = LinearLayoutManager(applicationContext)
+                adapter = ProfileboardAdapter(it, UserProfileActivity)
+            }
+        }
     }
 
     override fun editProfile(profile: Profile) {
-        NewUserProfileSheetFragment(profile).show(supportFragmentManager, "newProfileTag")
+        NewUserProfileSheetFragment(profile).show(supportFragmentManager, "newUserProfileTag")
     }
 
     override fun deleteProfile(profile: Profile) {
-        DeleteUserProfileSheetFragment(profile).show(supportFragmentManager, "deleteProfileTag")
+        DeleteUserProfileSheetFragment(profile).show(supportFragmentManager, "deleteUserProfileTag")
     }
 
     override fun toggleVisibility(profile: Profile) {

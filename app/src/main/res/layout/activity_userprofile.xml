@@ -24,7 +24,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:text="placeholder_helloUser"
+                android:text="Welkom, Gebruiker"
                 android:textStyle="bold" />
 
             <TextView
@@ -38,6 +38,16 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/noProfileTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:text="placeholder_text"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/UserProfileRecyclerView"
