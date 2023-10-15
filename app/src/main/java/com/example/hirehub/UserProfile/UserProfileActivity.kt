@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hirehub.Profileboard.NewProfileSheetFragment
 import com.example.hirehub.adapters.ProfileboardAdapter
+import com.example.hirehub.adapters.UserProfileAdapter
 import com.example.hirehub.clicklisteners.ProfileboardClickListener
 import com.example.hirehub.databases.HireHubApplication
 import com.example.hirehub.databinding.ActivityUserprofileBinding
@@ -36,10 +37,12 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
 
         sessionManager = SessionManager(this)
 
-        // Een click listener instellen voor de knop die wordt gebruikt om een nieuw profiel toe te voegen
         binding.newUserProfileButton.setOnClickListener {
-            NewProfileSheetFragment(null).show(supportFragmentManager, "newProfileTag")
+            // Maak een nieuw profiel met de juiste gebruikers-ID
+            val userId = sessionManager.getUserId()
+            NewUserProfileSheetFragment(null).show(supportFragmentManager, "newUserProfileTag")
         }
+
 
         // Koppelen van klikactie aan de newProfileBackButton
         binding.newUserProfileBackButton.setOnClickListener {
@@ -52,6 +55,7 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
         setRecyclerView()
         observeUserProfile()
     }
+
     private fun observeUserProfile() {
         val userId = sessionManager.getUserId()
         if (userId != null) {
@@ -83,15 +87,13 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
         }
     }
 
-
-
     private fun setRecyclerView() {
         val UserProfileActivity = this
         // Observeren van de profielenlijst in de ViewModel en het bijwerken van de RecyclerView-adapter wanneer er veranderingen zijn
         profileViewModel.profiles.observe(this) {
             binding.UserProfileRecyclerView.apply {
                 layoutManager = LinearLayoutManager(applicationContext)
-                adapter = ProfileboardAdapter(it, UserProfileActivity)
+                adapter = UserProfileAdapter(it, UserProfileActivity)
             }
         }
     }
@@ -104,6 +106,7 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
         DeleteUserProfileSheetFragment(profile).show(supportFragmentManager, "deleteUserProfileTag")
     }
 
+    // Verandert de zichtbaarheid van een profiel in de profileboard
     override fun toggleVisibility(profile: Profile) {
         profileViewModel.toggleProfileVisibility(profile)
     }

@@ -1,5 +1,6 @@
 package com.example.hirehub.repositories
 
+import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.example.hirehub.daos.UserDao
@@ -50,8 +51,7 @@ class UserRepository(private val userDao: UserDao) {
      */
     @WorkerThread
     fun getUserByUsernameAndPassword(username: String, password: String): User? {
-        return userDao.getUserByUsername(username)
-            ?.takeIf { it.password == password }
+        val user = userDao.getUserByUsername(username)
+        return user?.takeIf { it.password == password }
     }
-
 }
