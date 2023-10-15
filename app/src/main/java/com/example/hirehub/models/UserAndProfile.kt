@@ -6,7 +6,7 @@ import androidx.room.Relation
 data class UserAndProfile(
     @Embedded val user: User,
     @Relation(
-        parentColumn = "id", // Verander dit naar de juiste kolomnaam in User die de relatie definieert
+        parentColumn = "id",
         entityColumn = "userId"
     )
     val profile: Profile

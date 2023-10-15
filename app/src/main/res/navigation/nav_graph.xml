@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_landingtestFragment_to_registrationActivity"
             app:destination="@id/registrationActivity" />
+        <action
+            android:id="@+id/action_landingtestFragment_to_userProfileActivity"
+            app:destination="@id/userProfileActivity" />
     </fragment>
     <activity
         android:id="@+id/profileboardActivity"
@@ -81,4 +84,27 @@
         android:name="com.example.hirehub.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/userProfileActivity"
+        android:name="com.example.hirehub.UserProfile.UserProfileActivity"
+        android:label="activity_userprofile"
+        tools:layout="@layout/activity_userprofile" />
+    <dialog
+        android:id="@+id/deleteUserProfileSheetFragment"
+        android:name="com.example.hirehub.UserProfile.DeleteUserProfileSheetFragment"
+        android:label="fragment_delete_user_profile_sheet"
+        tools:layout="@layout/fragment_delete_user_profile_sheet" >
+        <action
+            android:id="@+id/action_deleteUserProfileSheetFragment_to_userProfileActivity"
+            app:destination="@id/userProfileActivity" />
+    </dialog>
+    <dialog
+        android:id="@+id/newUserProfileSheetFragment"
+        android:name="com.example.hirehub.UserProfile.NewUserProfileSheetFragment"
+        android:label="fragment_new_user_profile_sheet"
+        tools:layout="@layout/fragment_new_user_profile_sheet" >
+        <action
+            android:id="@+id/action_newUserProfileSheetFragment_to_userProfileActivity"
+            app:destination="@id/userProfileActivity" />
+    </dialog>
 </navigation>
