@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hirehub.Profileboard.ProfileboardActivity
+import com.example.hirehub.UserProfile.UserProfileActivity
 import com.example.hirehub.Userboard.UserboardActivity
 import com.example.hirehub.databinding.FragmentLandingtestBinding
 import com.example.hirehub.utils.SessionManager
@@ -53,6 +54,13 @@ class landingtestFragment : Fragment() {
         binding.loginButton.setOnClickListener {
             // Starten van LoginActivity wanneer de button wordt geklikt
             val intent = Intent(requireActivity(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Koppelen van klikactie aan de loginButton
+        binding.userProfileButton.setOnClickListener {
+            // Starten van LoginActivity wanneer de button wordt geklikt
+            val intent = Intent(requireActivity(), UserProfileActivity::class.java)
             startActivity(intent)
         }
 

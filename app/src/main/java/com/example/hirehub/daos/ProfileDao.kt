@@ -26,4 +26,8 @@ interface ProfileDao {
     // Verwijdert een profiel de database
     @Delete
     fun deleteProfile(profile: Profile)
+
+    // Haalt data op voor de UserProfile
+    @Query("SELECT * FROM profiles WHERE userId = :userId LIMIT 1")
+    fun getProfileByUserId(userId: Int): LiveData<Profile?>
 }

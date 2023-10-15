@@ -29,8 +29,12 @@ class SessionManager(context: Context) {
     }
 
     // Functie om de gebruikers-ID op te halen
+    fun saveUserDetails(userId: Int) {
+        sharedPreferences.edit().putInt(KEY_USER_ID, userId).apply()
+    }
+
     fun getUserId(): Int {
-        return sharedPreferences.getInt(KEY_USER_ID, -1) // -1 is een standaardwaarde als er geen ID is
+        return sharedPreferences.getInt(KEY_USER_ID, -1)
     }
 
     // Functie om de gebruikersrol op te halen

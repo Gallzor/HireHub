@@ -1,6 +1,7 @@
 package com.example.hirehub.models
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -14,7 +15,7 @@ data class Profile(
     @ColumnInfo(name = "skillOne") var skillOne: String? = null,
     @ColumnInfo(name = "certificate") var certificate: String? = null,
     @ColumnInfo(name = "mobileNumber") var mobileNumber: String? = null,
-    @ColumnInfo(name = "userId") var userId: Int? = null,
+    @ColumnInfo(name = "userId") var userId: Int? = null, // Hier wordt de gebruikers-ID opgeslagen
     @ColumnInfo(name = "isVisible") var isVisible: Boolean = true,
     @PrimaryKey(autoGenerate = true) var id: Int = 0
 )
