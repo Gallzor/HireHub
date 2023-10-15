@@ -7,6 +7,8 @@ import android.widget.EditText
 import android.widget.Toast
 import android.content.Intent
 import com.example.hirehub.databases.HireHubApplication
+import com.example.hirehub.databinding.ActivityLoginBinding
+import com.example.hirehub.databinding.ActivityRegistrationBinding
 import com.example.hirehub.models.User
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,10 +19,14 @@ class RegistrationActivity : AppCompatActivity() {
     lateinit var etUsername: EditText
     lateinit var etPassword: EditText
     lateinit var btnRegister: Button
+    private lateinit var binding: ActivityRegistrationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+
+        // Initialisatie van de binding
+        binding = ActivityRegistrationBinding.inflate(layoutInflater)
 
         etUsername = findViewById(R.id.etUsername)
         etPassword = findViewById(R.id.etPassword)
@@ -43,6 +49,11 @@ class RegistrationActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Vul alle velden correct in.", Toast.LENGTH_SHORT).show()
             }
+            // Koppelen van klikactie aan de loginBackButton
+            binding.registrationBackButton.setOnClickListener {
+                finish() // Dit zal teruggaan naar het vorige scherm
+            }
+
         }
     }
 
