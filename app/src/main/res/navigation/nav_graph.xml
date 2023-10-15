@@ -27,6 +27,12 @@
         <action
             android:id="@+id/action_landingtestFragment_to_profileboardActivity"
             app:destination="@id/profileboardActivity" />
+        <action
+            android:id="@+id/action_landingtestFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+        <action
+            android:id="@+id/action_landingtestFragment_to_registrationActivity"
+            app:destination="@id/registrationActivity" />
     </fragment>
     <activity
         android:id="@+id/profileboardActivity"
@@ -70,4 +76,9 @@
         android:name="com.example.hirehub.RegistrationActivity"
         android:label="activity_registration"
         tools:layout="@layout/activity_registration" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.hirehub.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>

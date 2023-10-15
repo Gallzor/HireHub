@@ -30,6 +30,7 @@ class NewUserSheetFragment(var user: User?) : BottomSheetDialogFragment() {
             val editable = Editable.Factory.getInstance()
             binding.username.text = editable.newEditable(user!!.username)
             binding.password.text = editable.newEditable(user!!.password)
+            binding.userRole.text = editable.newEditable(user!!.userRole)
         } else {
             binding.userTitle.text = "New User"
         }
@@ -50,20 +51,23 @@ class NewUserSheetFragment(var user: User?) : BottomSheetDialogFragment() {
     private fun saveAction() {
         val username = binding.username.text.toString()
         val password = binding.password.text.toString()
+        val userRole = binding.userRole.text.toString()
         if (user == null) {
             // Nieuwe gebruiker aanmaken en toevoegen aan de database
-            val newUser = User(username, password)
+            val newUser = User(username, password, userRole)
             userViewModel.addUser(newUser)
         } else {
             // Bestaande gebruiker bijwerken met de nieuwe gegevens
             user!!.username = username
             user!!.password = password
+            user!!.userRole = userRole
             userViewModel.updateUser(user!!)
         }
 
         // Tekstvelden legen en het bottom sheet sluiten
         binding.username.setText("")
         binding.password.setText("")
+        binding.userRole.setText("")
         dismiss()
     }
 }

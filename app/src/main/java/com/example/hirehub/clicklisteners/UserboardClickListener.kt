@@ -6,4 +6,5 @@ interface UserboardClickListener
 {
     fun editUser(user: User)
     fun deleteUser(user: User)
+
 }

@@ -16,6 +16,7 @@ class UserboardViewHolder(
     fun bindUser(user: User) {
         binding.username.text = user.username
         binding.password.text = user.password
+        binding.userRole.text = user.userRole
 
         // Een click listener instellen voor het bewerken van de gebruiker bij het klikken op het view item
         binding.userCellContainer.setOnClickListener {

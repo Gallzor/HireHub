@@ -17,6 +17,15 @@
             android:layout_height="93dp" />
 
         <TextView
+            android:id="@+id/welcomeUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:text="placeholder_username" />
+
+        <TextView
             android:layout_width="297dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
@@ -55,6 +64,16 @@
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
             android:text="Registreren" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:text="Inloggen" />
 
     </LinearLayout>
 
