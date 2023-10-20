@@ -54,4 +54,9 @@ class UserRepository(private val userDao: UserDao) {
         val user = userDao.getUserByUsername(username)
         return user?.takeIf { it.password == password }
     }
+    @WorkerThread
+    fun getUserById(userId: Int): User? {
+        return userDao.getUserById(userId)
+    }
+
 }

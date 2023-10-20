@@ -1,10 +1,8 @@
 package com.example.hirehub
 
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -24,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var sessionManager: SessionManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -32,7 +31,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         // Initialisatie van de sessionmanager
         sessionManager = SessionManager(this)
-
 
         etUsername = findViewById(R.id.etUsername)
         etPassword = findViewById(R.id.etPassword)
@@ -87,7 +85,6 @@ class LoginActivity : AppCompatActivity() {
                 finish() // Dit zal teruggaan naar het vorige scherm
             }
         }
-
     }
 
     private fun validateInputs(username: String, password: String): Boolean {

@@ -25,4 +25,8 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE username = :username")
     fun getUserByUsername(username: String): User?
 
+    @Query("SELECT * FROM users WHERE id = :userId LIMIT 1")
+    fun getUserById(userId: Int): User?
+
+
 }

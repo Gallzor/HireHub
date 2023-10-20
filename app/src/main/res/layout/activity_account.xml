@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/accountActivityLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".AccountActivity">
 
+    <!-- Titel van de pagina -->
+    <TextView
+        android:id="@+id/accountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:text="Mijn Account"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Knop voor het updaten van het profiel -->
     <Button
-        android:id="@+id/btnChangePassword"
+        android:id="@+id/btnUpdateProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Wachtwoord wijzigen" />
+        android:layout_marginBottom="12dp"
+        android:text="Profiel Bijwerken" />
 
+    <!-- Knop voor het verwijderen van het profiel -->
     <Button
-        android:id="@+id/btnDeleteAccount"
+        android:id="@+id/btnDeleteProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Account verwijderen" />
+        android:layout_marginBottom="12dp"
+        android:text="Profiel Verwijderen" />
 
+    <!-- Knop voor het updaten van de gebruiker -->
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/btnUpdateUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Uitloggen" />
+        android:text="Gebruikersinfo Bijwerken" />
 
 </LinearLayout>
