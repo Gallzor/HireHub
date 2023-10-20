@@ -1,31 +1,32 @@
-package com.example.hirehub.Profileboard
+package com.example.hirehub.UserProfile
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.example.hirehub.databinding.FragmentNewProfileSheetBinding
+import com.example.hirehub.databinding.FragmentNewUserProfileSheetBinding
 import com.example.hirehub.models.Profile
+import com.example.hirehub.utils.SessionManager
 import com.example.hirehub.viewmodels.ProfileViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-//Afhankelijk van of de gebruiker wordt bewerkt of een nieuwe gebruiker wordt toegevoegd,
-// wordt de titel van het bottom sheet en de tekstvelden dienovereenkomstig ingesteld.
+class NewUserProfileSheetFragment(private var profile: Profile?) : BottomSheetDialogFragment() {
 
-class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment() {
-
-    private lateinit var binding: FragmentNewProfileSheetBinding
+    private lateinit var binding: FragmentNewUserProfileSheetBinding
     private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var sessionManager: SessionManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Initialiseer de sessionManager
+        sessionManager = SessionManager(requireContext())
+
         // Instellingen voor de weergave op basis van het bewerken van een bestaand profiel of het toevoegen van een nieuw profiel
         if (profile != null) {
-            binding.profileTitle.text = "Edit Profile"
+            binding.userProfileTitle.text = "Edit your Profile"
             binding.firstName.setText(profile!!.firstname)
             binding.lastName.setText(profile!!.lastname)
             binding.city.setText(profile!!.city ?: "") // Zorg ervoor dat null wordt behandeld
@@ -35,23 +36,30 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
             binding.certificate.setText(profile!!.certificate ?: "")
             binding.mobileNumber.setText(profile!!.mobileNumber ?: "")
         } else {
-            binding.profileTitle.text = "New Profile"
+            binding.userProfileTitle.text = "New Profile"
         }
 
         // ViewModel aanmaken voor gebruikersacties
         profileViewModel = ViewModelProvider(requireActivity()).get(ProfileViewModel::class.java)
-        binding.saveProfileButton.setOnClickListener {
+        binding.saveUserProfileButton.setOnClickListener {
             saveAction()
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentNewProfileSheetBinding.inflate(inflater, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentNewUserProfileSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     // Functie voor het opslaan van een nieuw profiel of bijwerken van een bestaande profiel
     private fun saveAction() {
+        val userId = sessionManager.getUserId()
+
+        // Maak een nieuw profiel, zelfs als de gebruiker een bestaand profiel bewerkt
         val firstname = binding.firstName.text.toString()
         val lastname = binding.lastName.text.toString()
         val age = binding.age.text.toString()
@@ -61,10 +69,18 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
         val certificate = binding.certificate.text.toString()
         val mobileNumber = binding.mobileNumber.text.toString()
 
+        val newProfile = Profile(
+            firstname, lastname, city, email, age, skillOne, certificate, mobileNumber,
+            userId,
+            true, 0
+        )
+
         if (profile == null) {
-            val newProfile = Profile(firstname, lastname, city, email, age, skillOne, certificate, mobileNumber, null, true, 0)
+            // Als profile null is, is het een nieuw profiel
             profileViewModel.addProfile(newProfile)
         } else {
+            // Update het bestaande profiel met de juiste userId
+            profile!!.userId = userId
             profile!!.firstname = firstname ?: ""
             profile!!.lastname = lastname ?: ""
             profile!!.age = age ?: ""

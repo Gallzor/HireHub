@@ -9,7 +9,7 @@ import com.example.hirehub.daos.UserDao
 import com.example.hirehub.models.Profile
 import com.example.hirehub.models.User
 
-@Database(entities = [User::class, Profile::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Profile::class,], version = 1, exportSchema = false)
 abstract class HireHubDatabase : RoomDatabase() {
 
     // Abstracte functies om de DAO-objecten te krijgen

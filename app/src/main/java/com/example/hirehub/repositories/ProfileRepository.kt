@@ -38,4 +38,8 @@ class ProfileRepository (private val profileDao: ProfileDao) {
     fun deleteProfile(profile: Profile) {
         profileDao.deleteProfile(profile)
     }
+
+    fun getProfileByUserId(userId: Int): LiveData<Profile?> {
+        return profileDao.getProfileByUserId(userId)
+    }
 }

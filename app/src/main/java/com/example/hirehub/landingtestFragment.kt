@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hirehub.Profileboard.ProfileboardActivity
+import com.example.hirehub.UserProfile.UserProfileActivity
 import com.example.hirehub.Userboard.UserboardActivity
 import com.example.hirehub.databinding.FragmentLandingtestBinding
+import com.example.hirehub.utils.SessionManager
 
 class landingtestFragment : Fragment() {
 
@@ -47,6 +49,27 @@ class landingtestFragment : Fragment() {
             startActivity(intent)
 
         }
+
+        // Koppelen van klikactie aan de loginButton
+        binding.loginButton.setOnClickListener {
+            // Starten van LoginActivity wanneer de button wordt geklikt
+            val intent = Intent(requireActivity(), LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Koppelen van klikactie aan de loginButton
+        binding.userProfileButton.setOnClickListener {
+            // Starten van LoginActivity wanneer de button wordt geklikt
+            val intent = Intent(requireActivity(), UserProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Haal de gebruikersnaam op uit de SessionManager
+        val sessionManager = SessionManager(requireContext())
+        val username = sessionManager.getUsername()
+
+        // Update de welkomsttekst met de gebruikersnaam
+        binding.welcomeUsername.text = "Hello, $username"
     }
 
     override fun onDestroyView() {

@@ -95,4 +95,10 @@ class ProfileboardActivity : AppCompatActivity(), ProfileboardClickListener
     override fun deleteProfile(profile: Profile) {
         DeleteProfileSheetFragment(profile).show(supportFragmentManager, "deleteProfileTag")
     }
+
+    // Verandert de zichtbaarheid van een profiel in de profileboard
+    override fun toggleVisibility(profile: Profile) {
+        profileViewModel.toggleProfileVisibility(profile)
+    }
+
 }
