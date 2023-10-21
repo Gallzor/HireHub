@@ -13,15 +13,17 @@ class SessionManager(context: Context) {
         private const val KEY_USER_ID = "user_id"
         private const val KEY_USER_ROLE = "userRole"
         private const val KEY_USERNAME = "username"
+        private const val KEY_PASSWORD = "password"
     }
 
-    fun saveUserDetails(userId: Int, userRole: String, username: String) {
+    fun saveUserDetails(userId: Int, userRole: String, username: String, password: String) {
         sharedPreferences.edit()
             .putInt(KEY_USER_ID, userId)
             .putString(KEY_USER_ROLE, userRole)
             .putString(KEY_USERNAME, username)
+            .putString(KEY_PASSWORD, password)
             .apply()
-        Log.d("SessionManager", "User details saved: $userId, $userRole, $username")
+        Log.d("SessionManager", "Gebruikersgegevens opgeslagen: $userId, $userRole, $username, $password")
     }
 
     fun getUserId(): Int {
@@ -34,6 +36,10 @@ class SessionManager(context: Context) {
 
     fun getUsername(): String? {
         return sharedPreferences.getString(KEY_USERNAME, null)
+    }
+
+    fun getPassword(): String? {
+        return sharedPreferences.getString(KEY_PASSWORD, null)
     }
 
     fun clearUserDetails() {
