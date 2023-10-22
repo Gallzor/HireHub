@@ -58,6 +58,4 @@ class UserRepository(private val userDao: UserDao) {
     fun getUserById(userId: Int): User? {
         return userDao.getUserById(userId)
     }
-
-
 }

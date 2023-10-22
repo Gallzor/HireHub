@@ -107,4 +107,80 @@
             android:id="@+id/action_newUserProfileSheetFragment_to_userProfileActivity"
             app:destination="@id/userProfileActivity" />
     </dialog>
+    <fragment
+        android:id="@+id/mainProfileListFragment"
+        android:name="com.example.hirehub.MainProfileListFragment"
+        android:label="fragment_main_profile_list"
+        tools:layout="@layout/fragment_main_profile_list" >
+        <action
+            android:id="@+id/action_mainProfileListFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_mainProfileListFragment_to_profileListViewSheetFragment"
+            app:destination="@id/profileListViewSheetFragment" />
+        <action
+            android:id="@+id/action_mainProfileListFragment_to_profileListViewSheetFragment2"
+            app:destination="@id/profileListViewSheetFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileListViewSheetFragment"
+        android:name="com.example.hirehub.ProfileListViewSheetFragment"
+        android:label="profileListViewSheetFragment" >
+        <action
+            android:id="@+id/action_profileListViewSheetFragment_to_mainProfileListFragment"
+            app:destination="@id/mainProfileListFragment" />
+        <action
+            android:id="@+id/action_profileListViewSheetFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_profileListViewSheetFragment_to_profileListViewSheetFragment2"
+            app:destination="@id/profileListViewSheetFragment2" />
+    </fragment>
+    <dialog
+        android:id="@+id/profileListViewSheetFragment2"
+        android:name="com.example.hirehub.ProfileListViewSheetFragment"
+        android:label="ProfileListViewSheetFragment" />
+    <activity
+        android:id="@+id/accountActivity"
+        android:name="com.example.hirehub.AccountActivity"
+        android:label="activity_account"
+        tools:layout="@layout/activity_account" />
+    <activity
+        android:id="@+id/changePasswordActivity"
+        android:name="com.example.hirehub.ChangePasswordActivity"
+        android:label="activity_change_password"
+        tools:layout="@layout/activity_change_password" />
+    <fragment
+        android:id="@+id/userLoginFragment"
+        android:name="com.example.hirehub.UserLoginFragment"
+        android:label="fragment_user_login"
+        tools:layout="@layout/fragment_user_login" >
+        <action
+            android:id="@+id/action_userLoginFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+        <action
+            android:id="@+id/action_userLoginFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_userLoginFragment_to_userSignUpFragment"
+            app:destination="@id/userSignUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userSignUpFragment"
+        android:name="com.example.hirehub.UserSignUpFragment"
+        android:label="fragment_user_signup"
+        tools:layout="@layout/fragment_user_signup" >
+        <action
+            android:id="@+id/action_userSignUpFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_userSignUpFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+        <action
+            android:id="@+id/action_userSignUpFragment_to_registrationActivity"
+            app:destination="@id/registrationActivity" />
+        <action
+            android:id="@+id/action_userSignUpFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment" />
+    </fragment>
 </navigation>
