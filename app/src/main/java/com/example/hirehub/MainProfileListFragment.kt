@@ -38,22 +38,34 @@ class MainProfileListFragment : Fragment() {
 
         // Initialize RecyclerView
         val recyclerView = binding.mainProfileListRecyclerView
+        val noProfilesMessage = binding.noProfilesMessage
 
         // Observe the profiles and update the adapter when there are changes
         profileViewModel.profiles.observe(viewLifecycleOwner) { profiles ->
-            // Create and set the adapter with the click listener
-            val adapter = MainProfileListAdapter(profiles, object : MainProfileClickListener {
-                override fun onProfileItemClick(profile: Profile) {
-                    // Handle the click event and show the ProfileListViewSheetFragment
-                    val profileListViewSheetFragment = ProfileListViewSheetFragment()
-                    profileListViewSheetFragment.setProfile(profile)
-                    profileListViewSheetFragment.show(parentFragmentManager, "profileViewTag")
-                }
-            })
-            recyclerView.layoutManager = LinearLayoutManager(requireContext())
-            recyclerView.adapter = adapter
+            if (profiles.isEmpty()) {
+                // Er zijn geen profielen, toon het bericht
+                recyclerView.visibility = View.GONE
+                noProfilesMessage.visibility = View.VISIBLE
+            } else {
+                // Er zijn profielen, toon de RecyclerView en verberg het bericht
+                recyclerView.visibility = View.VISIBLE
+                noProfilesMessage.visibility = View.GONE
+
+                // Create and set the adapter with the click listener
+                val adapter = MainProfileListAdapter(profiles, object : MainProfileClickListener {
+                    override fun onProfileItemClick(profile: Profile) {
+                        // Handle the click event and show the ProfileListViewSheetFragment
+                        val profileListViewSheetFragment = ProfileListViewSheetFragment()
+                        profileListViewSheetFragment.setProfile(profile)
+                        profileListViewSheetFragment.show(parentFragmentManager, "profileViewTag")
+                    }
+                })
+                recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                recyclerView.adapter = adapter
+            }
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

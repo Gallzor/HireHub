@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,6 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- RecyclerView for profiles -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mainProfileListRecyclerView"
             android:layout_width="match_parent"
@@ -20,7 +19,16 @@
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/design_default_color_background" />
 
+        <!-- TextView for no profiles message -->
+        <TextView
+            android:id="@+id/noProfilesMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="There are no profiles created by users available."
+            android:textSize="20sp"
+            android:visibility="gone" />
     </LinearLayout>
-
-
 </RelativeLayout>
