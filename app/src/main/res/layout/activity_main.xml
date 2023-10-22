@@ -43,28 +43,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <ImageButton
+            android:id="@+id/homepageButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button 1"
             android:background="?android:attr/selectableItemBackground"
-            android:onClick="handleButton1Click" />
+            android:src="@drawable/ic_home_icon"
+            android:textColor="#000000" />
 
-        <Button
+        <ImageButton
+            android:id="@+id/userCrudButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button 2"
             android:background="?android:attr/selectableItemBackground"
-            android:onClick="handleButton2Click" />
+            android:src="@drawable/ic_user_board"
+            android:textColor="#000000" />
 
-        <Button
+        <ImageButton
+            android:id="@+id/profileCrudButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Button 3"
             android:background="?android:attr/selectableItemBackground"
-            android:onClick="handleButton3Click" />
+            android:src="@drawable/ic_profile_page"
+            android:textColor="#000000" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
