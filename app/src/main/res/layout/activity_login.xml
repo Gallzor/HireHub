@@ -32,6 +32,20 @@
             android:layout_margin="16dp"
             android:text="Inloggen" />
 
+        <Button
+            android:id="@+id/buttonRedirectSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="#DC4D4D"
+            android:text="Don't have an account yet? Sign Up!"
+            android:textColor="#3466FF"
+            android:textColorHighlight="#2298FF"
+            android:textColorLink="#306AFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/loginBackButton"
             android:layout_width="70dp"

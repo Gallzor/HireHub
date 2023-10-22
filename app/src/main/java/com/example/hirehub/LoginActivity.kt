@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.hirehub.databases.HireHubApplication
 import com.example.hirehub.databinding.ActivityLoginBinding
@@ -26,10 +27,11 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var sessionManager: SessionManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
         // Initialisatie van de loginbinding
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         // Initialisatie van de sessionmanager
         sessionManager = SessionManager(this)
 
@@ -67,8 +69,7 @@ class LoginActivity : AppCompatActivity() {
                         // Intent om door te sturen naar MainActivity
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
-                        finish() // Optioneel: sluit de LoginActivity
-
+                        finish()
                     } else {
                         runOnUiThread {
                             // Inloggen is mislukt
@@ -84,12 +85,19 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Vul alle velden correct in.", Toast.LENGTH_SHORT).show()
             }
 
+            // Voeg een klikactie toe om door te sturen naar RegistrationActivity
+            binding.buttonRedirectSignUp.setOnClickListener() {
+                // Starten van RegistrationActivity wanneer de button wordt geklikt
+                val intent = Intent(this, RegistrationActivity::class.java)
+                startActivity(intent)
+            }
+
             // Koppelen van klikactie aan de loginBackButton
             binding.loginBackButton.setOnClickListener {
-                finish() // Dit zal teruggaan naar het vorige scherm
+                // Teruggaan naar het vorige scherm
+                finish()
             }
         }
-
     }
 
     private fun validateInputs(username: String, password: String): Boolean {

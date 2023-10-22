@@ -118,10 +118,13 @@
         <action
             android:id="@+id/action_mainProfileListFragment_to_profileListViewSheetFragment"
             app:destination="@id/profileListViewSheetFragment" />
+        <action
+            android:id="@+id/action_mainProfileListFragment_to_profileListViewSheetFragment2"
+            app:destination="@id/profileListViewSheetFragment2" />
     </fragment>
     <fragment
         android:id="@+id/profileListViewSheetFragment"
-        android:name="com.example.hirehub.profileListViewSheetFragment"
+        android:name="com.example.hirehub.ProfileListViewSheetFragment"
         android:label="profileListViewSheetFragment" >
         <action
             android:id="@+id/action_profileListViewSheetFragment_to_mainProfileListFragment"
@@ -129,5 +132,22 @@
         <action
             android:id="@+id/action_profileListViewSheetFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_profileListViewSheetFragment_to_profileListViewSheetFragment2"
+            app:destination="@id/profileListViewSheetFragment2" />
     </fragment>
+    <dialog
+        android:id="@+id/profileListViewSheetFragment2"
+        android:name="com.example.hirehub.ProfileListViewSheetFragment"
+        android:label="ProfileListViewSheetFragment" />
+    <activity
+        android:id="@+id/accountActivity"
+        android:name="com.example.hirehub.AccountActivity"
+        android:label="activity_account"
+        tools:layout="@layout/activity_account" />
+    <activity
+        android:id="@+id/changePasswordActivity"
+        android:name="com.example.hirehub.ChangePasswordActivity"
+        android:label="activity_change_password"
+        tools:layout="@layout/activity_change_password" />
 </navigation>
