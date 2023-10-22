@@ -1,17 +1,18 @@
 package com.example.hirehub.repositories
 
-import android.util.Log
+
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import androidx.room.Transaction
 import com.example.hirehub.daos.UserDao
+import com.example.hirehub.databases.HireHubDatabase
 import com.example.hirehub.models.User
-import kotlinx.coroutines.flow.Flow
 
 /**
  * UserRepository fungeert als een abstractielaag tussen de ViewModel en de database (via UserDao).
  * Het beheert de gegevensstromen en bewerkingen voor gebruikersgegevens.
  */
-class UserRepository(private val userDao: UserDao) {
+class UserRepository(private val userDao: UserDao, private val database: HireHubDatabase) {
 
     // LiveData voor het observeren van de lijst met alle gebruikers
     val allUsers: LiveData<List<User>> = userDao.allUsers()
@@ -57,5 +58,14 @@ class UserRepository(private val userDao: UserDao) {
     @WorkerThread
     fun getUserById(userId: Int): User? {
         return userDao.getUserById(userId)
+    }
+    @Transaction
+    fun addUsersWithTransaction(users: List<User>) {
+        database.userDao().insertUsers(users)
+    }
+    @WorkerThread
+    fun usersExist(): Boolean {
+        // Voer een query uit om te controleren of er al gebruikers in de database zijn
+        return userDao.getUsersCount() > 0
     }
 }

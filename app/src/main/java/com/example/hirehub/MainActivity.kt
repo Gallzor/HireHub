@@ -12,28 +12,24 @@ import com.example.hirehub.UserProfile.UserProfileActivity
 import com.example.hirehub.Userboard.UserboardActivity
 import com.example.hirehub.databases.HireHubApplication
 import com.example.hirehub.databinding.ActivityMainBinding
+import com.example.hirehub.factories.ProfileModelFactory
 import com.example.hirehub.factories.UserModelFactory
 import com.example.hirehub.utils.SessionManager
+import com.example.hirehub.viewmodels.ProfileViewModel
 import com.example.hirehub.viewmodels.UserViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var sessionManager: SessionManager
-
-    private val userViewModel: UserViewModel by viewModels {
-        UserModelFactory((application as HireHubApplication).userRepository)
-    }
-
     @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // Maak 3 gebruikers aan en seed ze in de database.
-        // Roep de seedDatabase-functie aan wanneer de app wordt gestart
-        userViewModel.seedDatabase()
 
         // Initialiseer de SessionManager
         sessionManager = SessionManager(this)

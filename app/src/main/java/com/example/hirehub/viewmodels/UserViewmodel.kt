@@ -7,6 +7,7 @@ import com.example.hirehub.repositories.UserRepository
 import kotlinx.coroutines.launch
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 
 class UserViewModel(private val repository: UserRepository): ViewModel() {
     // LiveData voor het observeren van de lijst met gebruikers
@@ -37,28 +38,27 @@ class UserViewModel(private val repository: UserRepository): ViewModel() {
 
     // Seed de database en stopt er 3 voorafgemaakte accounts in, ieder van elke beschikbare rol.
     fun seedDatabase() {
-        viewModelScope.launch(Dispatchers.IO) {
-            // Gebruik de eerder gedefinieerde `repository` in plaats van `userRepository`
+        GlobalScope.launch(Dispatchers.IO) {
             val userRepository = repository
 
-            // Check of de specifieke gebruikers al in de database zitten
-            val henkExists =
-                userRepository?.getUserByUsernameAndPassword("Henk", "Sollicitant1234") != null
-            val lisanneExists =
-                userRepository?.getUserByUsernameAndPassword("Lisanne", "Recruiter1234") != null
-            val willemExists =
-                userRepository?.getUserByUsernameAndPassword("Willem", "Admin1234") != null
+            val usersToAdd = listOf(
+                User("KopjeKoffie", "Sollicitant1234", "SOL"),
+                User("PindaReep", "Recruiter1234", "REC"),
+                User("Kauwgumpje", "Admin1234", "AD"),
+                User("BakjeThee", "1435SDFsd8", "SOL"),
+                User("Lantaarn", "5634SDF", "SOL"),
+                User("GekVogeltje", "02394Adas", "SOL"),
+                User("Chocomelk", "23jdsf#@fk", "SOL"),
+                User("AutoVrouw", "2kd@#fk1", "SOL"),
+                User("BloemenMeisje", "9823DSf2", "SOL")
+            )
+            // Voeg de lijst van gebruikers toe aan de database
+            userRepository?.addUsersWithTransaction(usersToAdd)
 
-            // Voeg alleen de specifieke gebruikers toe als ze nog niet bestaan
-            if (!henkExists) {
-                userRepository?.insertUser(User("Henk", "Sollicitant1234", "SOL"))
-            }
-            if (!lisanneExists) {
-                userRepository?.insertUser(User("Lisanne", "Recruiter1234", "REC"))
-            }
-            if (!willemExists) {
-                userRepository?.insertUser(User("Willem", "Admin1234", "AD"))
-            }
         }
+    }
+
+    fun usersExist(): Boolean {
+        return repository.usersExist()
     }
 }

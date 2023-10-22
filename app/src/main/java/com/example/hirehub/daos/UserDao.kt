@@ -14,6 +14,10 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(user: User)
 
+    // Voegt meerdere nieuwe gebruikers toe aan de database
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertUsers(users: List<User>)
+
     // Werkt een bestaande gebruiker bij in de database
     @Update
     fun updateUser(user: User)
@@ -27,4 +31,6 @@ interface UserDao {
     @Query("SELECT * FROM users WHERE id = :userId")
     fun getUserById(userId: Int): User?
 
+    @Query("SELECT COUNT(*) FROM users")
+    fun getUsersCount(): Int
 }
