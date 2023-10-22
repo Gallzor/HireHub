@@ -84,6 +84,14 @@
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
             android:text="User Profile" />
+        <Button
+            android:id="@+id/btnMyAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Mijn Account"
+            android:layout_marginTop="16dp" />
+
 
     </LinearLayout>
 

@@ -60,7 +60,9 @@ class LoginActivity : AppCompatActivity() {
                             ).show()
                         }
                         // Gegevens opslaan in de SessionManager
-                        sessionManager.saveUserDetails(user.id, user.userRole, user.username)
+                        // Nadat de gebruiker is aangemeld en de juiste gegevens zijn geverifieerd
+                        sessionManager.saveUserDetails(user.id, user.userRole, user.username, user.password)
+
 
                         // Intent om door te sturen naar MainActivity
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
