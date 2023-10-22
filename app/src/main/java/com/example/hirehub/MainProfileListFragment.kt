@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hirehub.adapters.MainProfileListAdapter
 import com.example.hirehub.clicklisteners.MainProfileClickListener
@@ -15,7 +14,6 @@ import com.example.hirehub.databinding.FragmentMainProfileListBinding
 import com.example.hirehub.factories.ProfileModelFactory
 import com.example.hirehub.models.Profile
 import com.example.hirehub.viewmodels.ProfileViewModel
-
 
 class MainProfileListFragment : Fragment() {
     private var _binding: FragmentMainProfileListBinding? = null
@@ -42,17 +40,18 @@ class MainProfileListFragment : Fragment() {
 
         // Observe the profiles and update the adapter when there are changes
         profileViewModel.profiles.observe(viewLifecycleOwner) { profiles ->
-            if (profiles.isEmpty()) {
-                // Er zijn geen profielen, toon het bericht
+            val visibleProfiles = profiles.filter { it.isVisible }
+            if (visibleProfiles.isEmpty()) {
+                // Er zijn geen zichtbare profielen, toon het bericht
                 recyclerView.visibility = View.GONE
                 noProfilesMessage.visibility = View.VISIBLE
             } else {
-                // Er zijn profielen, toon de RecyclerView en verberg het bericht
+                // Er zijn zichtbare profielen, toon de RecyclerView en verberg het bericht
                 recyclerView.visibility = View.VISIBLE
                 noProfilesMessage.visibility = View.GONE
 
                 // Create and set the adapter with the click listener
-                val adapter = MainProfileListAdapter(profiles, object : MainProfileClickListener {
+                val adapter = MainProfileListAdapter(visibleProfiles, object : MainProfileClickListener {
                     override fun onProfileItemClick(profile: Profile) {
                         // Handle the click event and show the ProfileListViewSheetFragment
                         val profileListViewSheetFragment = ProfileListViewSheetFragment()
@@ -65,7 +64,6 @@ class MainProfileListFragment : Fragment() {
             }
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
