@@ -107,4 +107,27 @@
             android:id="@+id/action_newUserProfileSheetFragment_to_userProfileActivity"
             app:destination="@id/userProfileActivity" />
     </dialog>
+    <fragment
+        android:id="@+id/mainProfileListFragment"
+        android:name="com.example.hirehub.MainProfileListFragment"
+        android:label="fragment_main_profile_list"
+        tools:layout="@layout/fragment_main_profile_list" >
+        <action
+            android:id="@+id/action_mainProfileListFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_mainProfileListFragment_to_profileListViewSheetFragment"
+            app:destination="@id/profileListViewSheetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileListViewSheetFragment"
+        android:name="com.example.hirehub.profileListViewSheetFragment"
+        android:label="profileListViewSheetFragment" >
+        <action
+            android:id="@+id/action_profileListViewSheetFragment_to_mainProfileListFragment"
+            app:destination="@id/mainProfileListFragment" />
+        <action
+            android:id="@+id/action_profileListViewSheetFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
 </navigation>
