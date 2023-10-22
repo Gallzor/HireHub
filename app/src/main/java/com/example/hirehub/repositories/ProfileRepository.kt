@@ -2,10 +2,12 @@ package com.example.hirehub.repositories
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
+import androidx.room.Transaction
 import com.example.hirehub.daos.ProfileDao
+import com.example.hirehub.databases.HireHubDatabase
 import com.example.hirehub.models.Profile
 
-class ProfileRepository (private val profileDao: ProfileDao) {
+class ProfileRepository (private val profileDao: ProfileDao, private val database: HireHubDatabase) {
 
     // LiveData voor het observeren van de lijst met alle profielen
     val allProfiles: LiveData<List<Profile>> = profileDao.allProfiles()
@@ -38,8 +40,20 @@ class ProfileRepository (private val profileDao: ProfileDao) {
     fun deleteProfile(profile: Profile) {
         profileDao.deleteProfile(profile)
     }
-
+    @WorkerThread
     fun getProfileByUserId(userId: Int): LiveData<Profile?> {
         return profileDao.getProfileByUserId(userId)
     }
+
+    @Transaction
+    fun addProfilesWithTransaction(profiles: List<Profile>) {
+        database.profileDao().insertProfiles(profiles)
+    }
+
+    @WorkerThread
+    fun profilesExist(): Boolean {
+        // Voer een query uit om te controleren of er al profielen in de database zijn
+        return profileDao.getProfilesCount() > 0
+    }
+
 }

@@ -8,6 +8,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.hirehub.models.Profile
+import com.example.hirehub.models.User
 
 @Dao
 interface ProfileDao {
@@ -18,6 +19,8 @@ interface ProfileDao {
     // Voegt een nieuwe profiel toe aan de database
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertProfile(profile: Profile)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertProfiles(profiles: List<Profile>)
 
     // Werkt een bestaande profiel bij in de database
     @Update
@@ -30,4 +33,7 @@ interface ProfileDao {
     // Haalt data op voor de UserProfile
     @Query("SELECT * FROM profiles WHERE userId = :userId LIMIT 1")
     fun getProfileByUserId(userId: Int): LiveData<Profile?>
+
+    @Query("SELECT COUNT(*) FROM profiles")
+    fun getProfilesCount(): Int
 }
