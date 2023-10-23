@@ -3,6 +3,7 @@ package com.example.hirehub.Profileboard
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.activity.viewModels
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -72,17 +73,26 @@ class ProfileboardActivity : AppCompatActivity(), ProfileboardClickListener
     }
 
     // Functie om de recyclerview in te stellen
-    private fun setRecyclerView()
-    {
+    private fun setRecyclerView() {
         val ProfileboardActivity = this
         // Observeren van de profielenlijst in de ViewModel en het bijwerken van de RecyclerView-adapter wanneer er veranderingen zijn
-        profileViewModel.profiles.observe(this){
+        profileViewModel.profiles.observe(this) {
             binding.ProfileBoardRecyclerView.apply {
                 layoutManager = LinearLayoutManager(applicationContext)
                 adapter = ProfileboardAdapter(it, ProfileboardActivity)
             }
         }
+
+        // Controleer of er profielen beschikbaar zijn
+        if (profileViewModel.profiles.value.isNullOrEmpty()) {
+            // Er zijn geen profielen, toon het foutbericht
+            binding.noProfilesTextView.visibility = View.VISIBLE
+        } else {
+            // Er zijn profielen beschikbaar, verberg het foutbericht
+            binding.noProfilesTextView.visibility = View.GONE
+        }
     }
+
 
     // Functie die wordt aangeroepen wanneer een profiel wil worden bewerkt
     override fun editProfile(profile: Profile)

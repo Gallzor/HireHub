@@ -70,6 +70,16 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
                     filteredProfiles.add(profile)
                 }
                 updateUIBasedOnUserProfile(filteredProfiles)
+
+                if (profile == null) {
+                    // Geen profiel gevonden, toon de "Nieuw profiel" knop
+                    binding.newUserProfileButton.visibility = View.VISIBLE
+                    binding.UserProfileRecyclerView.visibility = View.GONE
+                    binding.noProfileTextView.text = "You don't have a profile yet."
+                } else {
+                    // Profiel gevonden, verberg de "Nieuw profiel" knop
+                    binding.newUserProfileButton.visibility = View.GONE
+                }
             })
         }
     }

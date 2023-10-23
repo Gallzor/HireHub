@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.hirehub.databinding.FragmentNewProfileSheetBinding
 import com.example.hirehub.models.Profile
@@ -61,9 +62,62 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
         val certificate = binding.certificate.text.toString()
         val mobileNumber = binding.mobileNumber.text.toString()
 
+        // Voer validatie uit
+        if (firstname.isEmpty() || firstname.length > 40) {
+            // Toon een foutmelding voor 'firstname'
+            binding.firstName.error = "Please fill in a correct name. Limit of 40 characters"
+            return
+        }
+
+        if (lastname.isEmpty() || lastname.length > 40) {
+            // Toon een foutmelding voor 'lastname'
+            binding.lastName.error = "Please fill in a correct name. Limit of 40 characters"
+            return
+        }
+
+        if (age.isEmpty() || age.length > 3) {
+            // Toon een foutmelding voor 'age'
+            binding.age.error = "Please fill in an age. No more then 3 numbers"
+            return
+        }
+
+        if (city.length > 40) {
+            // Toon een foutmelding voor 'city'
+            binding.city.error = "Please fill in a city of residence. Limit of 40 characters"
+            return
+        }
+
+        if (email.isEmpty() || !email.contains("@")) {
+            // Toon een foutmelding voor 'email'
+            binding.email.error = "Please input a email. It should contain a @"
+            return
+        }
+
+        if (skillOne.length > 40) {
+            // Toon een foutmelding voor 'skillOne'
+            binding.skillOne.error = "Please fill a skill in. Limit of 40 characters"
+            return
+        }
+
+        if (certificate.length > 30) {
+            // Toon een foutmelding voor 'certificate'
+            binding.certificate.error = "Please fill in a latest earned degree. Limit of 30 characters."
+            return
+        }
+
+        if (mobileNumber.length > 12) {
+            // Toon een foutmelding voor 'mobileNumber'
+            binding.mobileNumber.error = "Please input a mobile phone number. Limit of 12 numbers."
+            return
+        }
+
         if (profile == null) {
             val newProfile = Profile(firstname, lastname, city, email, age, skillOne, certificate, mobileNumber, null, true, 0)
             profileViewModel.addProfile(newProfile)
+
+            // Toon een succesbericht met een Toast
+            showToast("The profile has been created!")
+
         } else {
             profile!!.firstname = firstname ?: ""
             profile!!.lastname = lastname ?: ""
@@ -74,6 +128,9 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
             profile!!.certificate = certificate ?: ""
             profile!!.mobileNumber = mobileNumber ?: ""
             profileViewModel.updateProfile(profile!!)
+
+            // Toon een succesbericht met een Toast
+            showToast("Profile edit has been saved!")
         }
 
         binding.firstName.setText("")
@@ -86,4 +143,9 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
         binding.mobileNumber.setText("")
         dismiss()
     }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
 }
