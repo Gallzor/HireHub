@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.hirehub.databinding.FragmentNewUserSheetBinding
 import com.example.hirehub.models.User
@@ -78,12 +79,19 @@ class NewUserSheetFragment(var user: User?) : BottomSheetDialogFragment() {
             // Nieuwe gebruiker aanmaken en toevoegen aan de database
             val newUser = User(username, password, userRole)
             userViewModel.addUser(newUser)
+
+            // Toon een succesbericht met een Toast
+            showToast("The user has been created!")
+
         } else {
             // Bestaande gebruiker bijwerken met de nieuwe gegevens
             user!!.username = username
             user!!.password = password
             user!!.userRole = userRole
             userViewModel.updateUser(user!!)
+
+            // Toon een succesbericht met een Toast
+            showToast("User edit has been saved!")
         }
 
         // Tekstvelden legen en het bottom sheet sluiten
@@ -96,5 +104,8 @@ class NewUserSheetFragment(var user: User?) : BottomSheetDialogFragment() {
     private fun isValidUserRole(userRole: String): Boolean {
         val validRoles = setOf("SOL", "REC", "AD")
         return userRole.toUpperCase() in validRoles
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 }

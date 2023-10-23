@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hirehub.adapters.UserboardAdapter
@@ -58,15 +59,23 @@ class UserboardActivity : AppCompatActivity(), UserboardClickListener
         })
     }
 
-        // Functie om de recyclerview in te stellen
-    private fun setRecyclerView()
-    {
+    // Functie om de recyclerview in te stellen
+    private fun setRecyclerView() {
         val UserboardActivity = this
         // Observeren van de gebruikerslijst in de ViewModel en het bijwerken van de RecyclerView-adapter wanneer er veranderingen zijn
-        userViewModel.users.observe(this){
+        userViewModel.users.observe(this) {
             binding.UserBoardRecyclerView.apply {
                 layoutManager = LinearLayoutManager(applicationContext)
                 adapter = UserboardAdapter(it, UserboardActivity)
+            }
+
+            // Controleer of er gebruikers beschikbaar zijn
+            if (userViewModel.users.value.isNullOrEmpty()) {
+                // Er zijn geen gebruikers, toon het foutbericht
+                binding.noUsersTextView.visibility = View.VISIBLE
+            } else {
+                // Er zijn gebruikers beschikbaar, verberg het foutbericht
+                binding.noUsersTextView.visibility = View.GONE
             }
         }
     }

@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.hirehub.databinding.FragmentNewProfileSheetBinding
 import com.example.hirehub.models.Profile
@@ -113,6 +114,10 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
         if (profile == null) {
             val newProfile = Profile(firstname, lastname, city, email, age, skillOne, certificate, mobileNumber, null, true, 0)
             profileViewModel.addProfile(newProfile)
+
+            // Toon een succesbericht met een Toast
+            showToast("The profile has been created!")
+
         } else {
             profile!!.firstname = firstname ?: ""
             profile!!.lastname = lastname ?: ""
@@ -123,6 +128,9 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
             profile!!.certificate = certificate ?: ""
             profile!!.mobileNumber = mobileNumber ?: ""
             profileViewModel.updateProfile(profile!!)
+
+            // Toon een succesbericht met een Toast
+            showToast("Profile edit has been saved!")
         }
 
         binding.firstName.setText("")
@@ -135,4 +143,9 @@ class NewProfileSheetFragment(var profile: Profile?) : BottomSheetDialogFragment
         binding.mobileNumber.setText("")
         dismiss()
     }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
 }
