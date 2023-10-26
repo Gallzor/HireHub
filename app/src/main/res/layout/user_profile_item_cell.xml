@@ -233,6 +233,7 @@
                 android:layout_height="60dp"
                 android:layout_gravity="left"
                 android:layout_marginStart="20dp"
+                android:background="#00A5C9"
                 android:src="@drawable/ic_eye_open" />
 
             <Space
@@ -246,6 +247,7 @@
                 android:layout_height="60dp"
                 android:layout_gravity="right"
                 android:layout_marginEnd="20dp"
+                android:background="#00A5C9"
                 android:foregroundGravity="right"
                 android:src="@drawable/baseline_delete_24" />
         </LinearLayout>
