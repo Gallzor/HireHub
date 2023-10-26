@@ -16,6 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:elevation="4dp"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="@color/purple_200"
             android:hint="Gebruikersnaam" />
 
         <EditText
@@ -23,6 +29,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:elevation="4dp"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="@color/purple_200"
             android:hint="Wachtwoord"
             android:inputType="textPassword" />
 
@@ -31,6 +43,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:elevation="4dp"
+            android:backgroundTint="@color/purple_200"
             android:text="Inloggen" />
 
         <Button
@@ -41,10 +58,14 @@
             android:layout_marginTop="16dp"
             android:background="#DC4D4D"
             android:text="Don't have an account yet? Sign Up!"
-            android:textColor="#3466FF"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:elevation="4dp"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="@color/purple_200"
             android:textColorHighlight="#2298FF"
             android:textColorLink="#306AFF"
-            android:textSize="20sp"
             android:textStyle="bold" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
