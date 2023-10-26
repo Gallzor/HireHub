@@ -16,6 +16,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="Delete profile?"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
         android:textSize="30sp" />
 
 
@@ -28,6 +30,8 @@
         android:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="text"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
         android:text="Are you sure you want to delete the profile?" />
 
     <com.google.android.material.button.MaterialButton
@@ -36,6 +40,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
-        android:text="Yes! Delete profile!" />
+        android:elevation="4dp"
+        android:text="Yes! Delete profile!"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/design_default_color_error"
+        android:textSize="18sp" />
 
 </LinearLayout>
