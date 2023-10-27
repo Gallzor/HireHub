@@ -229,12 +229,14 @@
 
             <ImageButton
                 android:id="@+id/visibilityUserProfileboardButton"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginStart="20dp"
-                android:background="#00A5C9"
-                android:src="@drawable/ic_eye_open" />
+                android:background="@drawable/rounded_corner_buttons"
+                android:padding="15dp"
+                android:src="@drawable/ic_eye_open"
+                android:contentDescription="Visibility of your profile Button" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -243,13 +245,15 @@
 
             <ImageButton
                 android:id="@+id/deleteUserProfileboardButton"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginEnd="20dp"
-                android:background="#00A5C9"
+                android:background="@drawable/rounded_corner_buttons"
                 android:foregroundGravity="right"
-                android:src="@drawable/baseline_delete_24" />
+                android:padding="15dp"
+                android:src="@drawable/baseline_delete_24"
+                android:contentDescription="Delete your profile Button" />
         </LinearLayout>
 
     </LinearLayout>

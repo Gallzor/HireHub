@@ -16,10 +16,15 @@
         android:layout_margin="20dp"
         android:background="#FFFEFE"
         android:drawableStart="@android:drawable/ic_menu_search"
+        android:drawablePadding="10dp"
+        android:elevation="10dp"
+        android:gravity="center_vertical"
         android:hint="Search Users"
         android:inputType="text"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
+        android:paddingBottom="10dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false" />
 
     <!-- User and Password Titles with slightly reduced height and margin -->
     <LinearLayout
@@ -27,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="#00A5C9"
+        android:elevation="20dp"
         android:orientation="horizontal">
 
         <TextView
@@ -36,6 +42,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="User:"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -45,6 +52,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Password:"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -72,25 +80,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/newUserBackButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:backgroundTint="#D458F8"
             android:text="Back"
             android:textColor="?colorOnPrimary"
+            android:textSize="20sp"
             app:iconTint="?colorOnPrimary" />
+
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/newUserButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="20dp"
+            android:layout_weight="1"
             android:backgroundTint="?attr/colorPrimary"
             android:text="New User"
             android:textColor="?colorOnPrimary"
+            android:textSize="20sp"
             app:iconTint="?colorOnPrimary" />
     </LinearLayout>
 </LinearLayout>

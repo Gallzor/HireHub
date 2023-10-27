@@ -6,6 +6,7 @@
     android:layout_height="90dp"
     app:cardCornerRadius="5dp"
     android:layout_margin="5dp"
+    app:cardElevation="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -61,12 +62,14 @@
 
             <ImageButton
                 android:id="@+id/deleteUserButton"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_margin="20dp"
-                android:background="#00A5C9"
-                android:src="@drawable/baseline_delete_24" />
+                android:background="@drawable/rounded_corner_buttons"
+                android:padding="15dp"
+                android:src="@drawable/baseline_delete_24"
+                android:contentDescription="Delete User Button" />
         </LinearLayout>
 
     </LinearLayout>

@@ -16,6 +16,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="#00A5C9"
+        android:elevation="20dp"
         android:orientation="horizontal"
         android:padding="20dp">
 
@@ -26,7 +27,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:gravity="center"
-            android:text="Welkom, Gebruiker"
+            android:text="Welcome, Gebruiker"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -37,6 +39,7 @@
             android:ems="10"
             android:gravity="center"
             android:text="this is your profile!"
+            android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -66,7 +69,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_weight="1"
-        android:backgroundTint="@color/design_default_color_background" />
+        android:backgroundTint="@color/design_default_color_background"
+        android:elevation="20dp" />
 
     <!-- Onderste knoppen -->
     <LinearLayout
@@ -86,6 +90,7 @@
             android:padding="5dp"
             android:text="Back"
             android:textColor="?colorOnPrimary"
+            android:textSize="20sp"
             app:iconTint="?colorOnPrimary" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -98,6 +103,7 @@
             android:padding="5dp"
             android:text="New Profile"
             android:textColor="?colorOnPrimary"
+            android:textSize="20sp"
             app:iconTint="?colorOnPrimary" />
 
         <!-- Terugknop -->

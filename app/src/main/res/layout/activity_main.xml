@@ -16,9 +16,11 @@
         android:layout_gravity="end"
         android:layout_margin="16dp"
         android:background="#00FFFFFF"
+        android:elevation="20dp"
         android:padding="1dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/ic_account_view"
-        android:scaleType="fitCenter"/>
+        android:contentDescription="Account page Button" />
 
     <!-- FragmentContainerView -->
     <androidx.fragment.app.FragmentContainerView
@@ -33,6 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
+        android:elevation="10dp"
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -43,9 +46,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
+            android:elevation="10dp"
             android:padding="20dp"
             android:src="@drawable/ic_home_icon"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:contentDescription="Homepage Button" />
 
         <!-- User CRUD Button -->
         <ImageButton
@@ -54,9 +59,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
+            android:elevation="20dp"
             android:padding="20dp"
             android:src="@drawable/ic_user_board"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:contentDescription="User CRUD Button" />
 
         <!-- Profile CRUD Button -->
         <ImageButton
@@ -65,8 +72,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?attr/colorPrimary"
+            android:elevation="10dp"
             android:padding="20dp"
             android:src="@drawable/ic_profile_page"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:contentDescription="Profile CRUD Button" />
     </LinearLayout>
 </LinearLayout>
