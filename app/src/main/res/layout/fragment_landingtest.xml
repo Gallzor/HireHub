@@ -23,17 +23,25 @@
             android:layout_gravity="center"
             android:layout_marginStart="60dp"
             android:layout_marginEnd="60dp"
-            android:text="placeholder_username" />
+            android:elevation="4dp"
+            android:text="placeholder_username"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="297dp"
-            android:layout_height="32dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
+            android:elevation="4dp"
             android:gravity="center"
-            android:text="Op deze fragment kun je de activities testen" />
+            android:text="Op deze fragment kun je de activities testen"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/userboardButton"
@@ -43,7 +51,12 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
-            android:text="Userboard" />
+            android:backgroundTint="@color/purple_200"
+            android:elevation="4dp"
+            android:text="Userboard"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/profileboardButton"
@@ -53,7 +66,12 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
-            android:text="Profileboard" />
+            android:backgroundTint="@color/purple_200"
+            android:elevation="4dp"
+            android:text="Profileboard"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/registrationButton"
@@ -63,7 +81,12 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
-            android:text="Registreren" />
+            android:backgroundTint="@color/purple_200"
+            android:elevation="4dp"
+            android:text="Registreren"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/loginButton"
@@ -73,7 +96,12 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
-            android:text="Inloggen" />
+            android:backgroundTint="@color/purple_200"
+            android:elevation="4dp"
+            android:text="Inloggen"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/userProfileButton"
@@ -83,14 +111,25 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
-            android:text="User Profile" />
+            android:backgroundTint="@color/purple_200"
+            android:elevation="4dp"
+            android:text="User Profile"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
         <Button
             android:id="@+id/btnMyAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/purple_200"
+            android:elevation="4dp"
             android:text="Mijn Account"
-            android:layout_marginTop="16dp" />
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
 
     </LinearLayout>

@@ -17,25 +17,47 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
+
 
     <Button
         android:id="@+id/btnChangePassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Wachtwoord Wijzigen"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:elevation="4dp"
+        android:backgroundTint="@color/purple_200"/>
+
 
     <Button
         android:id="@+id/btnDeleteAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Account Verwijderen"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:elevation="4dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/purple_200"/>  <!-- Achtergrondkleur -->
+
 
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Uitloggen"/>
+        android:backgroundTint="@color/purple_200"
+        android:elevation="4dp"
+        android:text="Uitloggen"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+
 </LinearLayout>
