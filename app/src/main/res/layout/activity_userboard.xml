@@ -71,8 +71,13 @@
         android:id="@+id/UserBoardRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_weight="1"
-        android:layout_margin="20dp"
         android:backgroundTint="@color/design_default_color_background" />
 
     <!-- Back and New User Buttons -->

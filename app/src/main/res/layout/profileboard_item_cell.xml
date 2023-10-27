@@ -29,6 +29,11 @@
                 android:text="place_holder"
                 android:textSize="24sp" />
 
+            <Space
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/lastName"
                 style="@style/TextAppearance.AppCompat.Title"
