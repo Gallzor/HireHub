@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="30dp"
     tools:context=".DeleteUserSheetFragment">
 
 
@@ -19,16 +20,18 @@
         android:textSize="30sp" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/confirmDeleteUserText"
-        android:layout_width="371dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_weight="1"
         android:ems="10"
-        android:inputType="text"
-        android:text="Are you sure you want to delete the user?" />
+        android:padding="5dp"
+        android:text="Are you sure you want to delete the user?"
+        android:textSize="16sp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/confirmDeleteUserButton"
@@ -36,6 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
-        android:text="Yes! Delete user!" />
+        android:text="Yes! Delete user!"
+        android:textSize="18sp"
+        app:backgroundTint="@color/design_default_color_error" />
 
 </LinearLayout>

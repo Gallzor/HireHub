@@ -89,7 +89,6 @@
             android:backgroundTint="#D458F8"
             android:padding="5dp"
             android:text="Back"
-            android:textColor="?colorOnPrimary"
             android:textSize="20sp"
             app:iconTint="?colorOnPrimary" />
 
@@ -102,7 +101,6 @@
             android:backgroundTint="@color/hirehub_purple"
             android:padding="5dp"
             android:text="New Profile"
-            android:textColor="?colorOnPrimary"
             android:textSize="20sp"
             app:iconTint="?colorOnPrimary" />
 
