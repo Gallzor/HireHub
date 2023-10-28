@@ -206,6 +206,7 @@
                 android:elevation="4dp"
                 android:text="Save"
                 android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
 
         </LinearLayout>

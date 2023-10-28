@@ -23,6 +23,7 @@
 
     <TextView
         android:id="@+id/confirmDeleteProfileText"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -45,6 +46,7 @@
         android:elevation="4dp"
         android:text="Yes! Delete profile!"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 
 </LinearLayout>

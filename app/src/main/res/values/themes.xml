@@ -3,9 +3,9 @@
 
     <style name="Base.Theme.HireHub" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <!-- Hier voeg je de stijl toe voor je achtergrondafbeelding. -->
         <item name="android:windowBackground">@drawable/background_image_hirehub_blur</item>
+        <item name="android:textColor">@color/black</item> <!-- Tekstkleur voor Day-modus -->
     </style>
 
     <style name="Theme.Hirehub" parent="Base.Theme.HireHub" />
@@ -13,8 +13,8 @@
 
     <style name="Base.Theme.Hirehub" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <!-- Hier voeg je de stijl toe voor je achtergrondafbeelding. -->
         <item name="android:windowBackground">@drawable/background_image_hirehub_blur</item>
+        <item name="android:textColor">@color/white</item> <!-- Tekstkleur voor Night-modus -->
     </style>
 </resources>

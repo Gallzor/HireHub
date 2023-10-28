@@ -94,6 +94,7 @@
             android:layout_weight="1"
             android:backgroundTint="#D458F8"
             android:text="Back"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:iconTint="?colorOnPrimary" />
 
@@ -105,6 +106,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/hirehub_purple"
             android:text="New User"
+            android:textColor="@color/white"
             android:textSize="20sp"
             app:iconTint="?colorOnPrimary" />
     </LinearLayout>
