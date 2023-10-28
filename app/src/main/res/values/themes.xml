@@ -5,7 +5,7 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <!-- Hier voeg je de stijl toe voor je achtergrondafbeelding. -->
-        <item name="android:windowBackground">@drawable/background_image_hirehub</item>
+        <item name="android:windowBackground">@drawable/background_image_hirehub_blur</item>
     </style>
 
     <style name="Theme.Hirehub" parent="Base.Theme.HireHub" />
@@ -15,6 +15,6 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <!-- Hier voeg je de stijl toe voor je achtergrondafbeelding. -->
-        <item name="android:windowBackground">@drawable/background_image_hirehub</item>
+        <item name="android:windowBackground">@drawable/background_image_hirehub_blur</item>
     </style>
 </resources>

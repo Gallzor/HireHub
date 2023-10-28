@@ -203,11 +203,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/purple_200"
+                android:backgroundTint="@color/hirehub_purple"
                 android:elevation="4dp"
+                android:text="Save"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:text="Save"/>
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 

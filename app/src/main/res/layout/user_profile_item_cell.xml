@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/userProfileCellContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_margin="5dp"
     app:cardCornerRadius="5dp">
 
@@ -25,6 +25,7 @@
             android:layout_marginEnd="40dp"
             android:text="First name"
             android:textColor="@color/hirehub_blue"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -48,8 +49,10 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
+            android:paddingTop="10dp"
             android:text="Last name"
             android:textColor="@color/hirehub_blue"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -74,8 +77,10 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
+            android:paddingTop="10dp"
             android:text="City"
             android:textColor="@color/hirehub_blue"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -93,7 +98,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -111,6 +117,7 @@
                     android:layout_marginEnd="10dp"
                     android:text="Age"
                     android:textColor="@color/hirehub_blue"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -121,8 +128,10 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="5dp"
                     android:layout_marginEnd="40dp"
+                    android:paddingStart="60dp"
                     android:text="Mobile number"
                     android:textColor="@color/hirehub_blue"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -150,6 +159,7 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="5dp"
                     android:layout_marginEnd="40dp"
+                    android:paddingStart="60dp"
                     android:text="place_holder" />
             </LinearLayout>
         </LinearLayout>
@@ -164,8 +174,10 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
+            android:paddingTop="10dp"
             android:text="Certificate"
             android:textColor="@color/hirehub_blue"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -190,8 +202,10 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
+            android:paddingTop="10dp"
             android:text="Email"
             android:textColor="@color/hirehub_blue"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -216,8 +230,10 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
+            android:paddingTop="10dp"
             android:text="Skills"
             android:textColor="@color/hirehub_blue"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -235,10 +251,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
 
             <ImageButton
                 android:id="@+id/visibilityUserProfileboardButton"

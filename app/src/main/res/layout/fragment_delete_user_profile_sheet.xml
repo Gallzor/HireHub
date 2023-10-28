@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:backgroundTint="@color/hirehub_purple"
     android:orientation="vertical"
+    android:paddingBottom="30dp"
     tools:context=".UserProfile.DeleteUserProfileSheetFragment">
 
 
@@ -16,20 +17,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Delete profile?"
+        android:paddingBottom="5dp"
+        android:text="Delete your profile?"
         android:textSize="30sp" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/confirmDeleteUserProfileText"
-        android:layout_width="371dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_weight="1"
         android:ems="10"
-        android:inputType="text"
-        android:text="Are you sure you want to delete your profile?" />
+        android:padding="5dp"
+        android:text="Are you sure you want to delete your profile?"
+        android:textSize="16sp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/confirmDeleteUserProfileButton"
@@ -38,6 +42,7 @@
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
         android:text="Yes! Delete my profile!"
-        app:backgroundTint="@color/hirehub_purple" />
+        android:textSize="18sp"
+        app:backgroundTint="@color/design_default_color_error" />
 
 </LinearLayout>
