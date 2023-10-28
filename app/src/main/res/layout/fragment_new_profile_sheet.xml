@@ -15,10 +15,9 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        android:text="New Profile"
-        android:textColor="#FFFFFF"
-        android:textAllCaps="false"
         android:elevation="4dp"
+        android:text="New Profile"
+        android:textAllCaps="false"
         android:textSize="30sp" />
 
     <ScrollView
@@ -207,7 +206,7 @@
                 android:elevation="4dp"
                 android:text="Save"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 

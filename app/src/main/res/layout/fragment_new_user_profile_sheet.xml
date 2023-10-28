@@ -202,6 +202,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:text="Save"
+                android:textSize="20sp"
                 app:backgroundTint="@color/hirehub_purple" />
 
         </LinearLayout>
