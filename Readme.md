@@ -24,14 +24,14 @@ Om HireHub op te starten zijn er twee manieren.
 1. ### Git + Android Studio
 De applicatie opstarten als Android Studio App.
 Ga naar de Github Repository van de HireHub Project.
-![Repository](https://imgur.com/1jQX3Yc)
+![Repository](https://i.imgur.com/1jQX3Yc.png)
 Klik daarna op de groene "Code" knop, er opent een scherm. Klik met de muis op de HTTPS link, of het kopieer knopje.
-![HTTP link](https://imgur.com/uIRX8sa)
+![HTTP link](https://i.imgur.com/uIRX8sa.png)
 Sluit de Github af en open Android Studio.
 Klik op de knop rechts bovenin genaamd "Get from VCS",
-![VCS](https://imgur.com/0618hI2)
+![VCS](https://i.imgur.com/0618hI2.png)
 En plak de link in de URL: vakje. Kies daarna de map waar je de repository in wilt opslaan.
-![Url Plak](https://imgur.com/5mXOb0B)
+![Url Plak](https://i.imgur.com/5mXOb0B.png)
 Vervolgens druk je op de blauwe knop: "Clone"
 Wacht nu rustig tot Android Studio de Repository van Git heeft opgehaald.
 Er zal worden gevraagd of je het project vertrouwd. Klik op "Trust Project!"
