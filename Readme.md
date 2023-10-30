@@ -24,12 +24,26 @@ Om HireHub op te starten zijn er twee manieren.
 1. ### Git + Android Studio
 De applicatie opstarten als Android Studio App.
 Ga naar de Github Repository van de HireHub Project.
-![img.png](img.png)
+![img.png](img_documents/imgrepository.png)
 Klik daarna op de groene "Code" knop, er opent een scherm. Klik met de muis op de HTTPS link, of het kopieer knopje.
-![img_1.png](img_1.png)
+![img.png](img_documents/imggreenbutton.png)
 Sluit de Github af en open Android Studio.
-2. ### APK + VM/Mobiel
+Klik op de knop rechts bovenin genaamd "Get from VCS", en plak de link in de URL: vakje.
+![img.png](img_documents/imgVCS.png)
+Vervolgens druk je op de blauwe knop: "Clone"
+Wacht nu rustig tot Android Studio de Repository van Git heeft opgehaald.
+Er zal worden gevraagd of je het project vertrouwd. Klik op "Trust Project!"
+Daarna zie je rechtsonderin dat Android studio op de achtergrond het project aan het verwerken is.
+Het kan ook zijn dat Windows Firewall vraagt of je toegang wilt geven tot het project. Mocht dat zo zijn, selecteer "Geef Toegang" of "Allow Acces"
+
+2. ### APK + VM/Mobiel(Android)
 (...Vul in als duidelijk is hoe installatie met APK gaat)
+APK, kort voor Android Package Kit, is het bestandsformaat dat Android gebruikt om apps te verdelen of installeren.
+Door de APK kan de applicatie op een mobiel worden geopend zonder bijvoorbeeld Google Play Store.
+
+Zet het APK bestand over naar een android mobiel in kwestie via een USB kabel of een cloud, zoals Google drive.
+APK, kort voor Android Package Kit, is het bestandsformaat dat Android gebruikt om apps te verdelen of installeren. 
+Zet "Accepteer installaties van buiten af" of "Allow installation from unknown sources" aan.
 
 ## Gebruik
 Na de installatie en het starten van de applicatie kunnen de functies van HireHub worden gebruikt.
