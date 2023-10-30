@@ -69,12 +69,12 @@ Als het goed is opent er dan een mobiele weergave in het tabje "Runnin devices",
 Je kunt nu in de Emulator de applicatie bekijken!
 
 2. ### APK + VM/Mobiel(Android)
-(...Vul in als duidelijk is hoe installatie met APK gaat)
+(...Vul in/maak af als duidelijk is hoe installatie met APK gaat)
+
 APK, kort voor Android Package Kit, is het bestandsformaat dat Android gebruikt om apps te verdelen of installeren.
 Door de APK kan de applicatie op een mobiel worden geopend zonder bijvoorbeeld Google Play Store.
 
-Zet het APK bestand over naar een android mobiel in kwestie via een USB kabel of een cloud, zoals Google drive.
-APK, kort voor Android Package Kit, is het bestandsformaat dat Android gebruikt om apps te verdelen of installeren. 
+Zet het APK bestand over naar een android mobiel in kwestie via een USB kabel of een cloud, zoals Google drive. 
 Zet "Accepteer installaties van buiten af" of "Allow installation from unknown sources" aan.
 
 ## Gebruik
