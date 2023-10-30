@@ -1,11 +1,20 @@
-# (Team Naam)
-## _(Project Titel)_
+# De Appartners
+## _HireHub_
 ### Software Ontwerp Document SL3
 ##### Studenten:
+* _Faissal Koulej_
+* _S1184579_
+  &
+* _Gallyon Rozenkamp_
+* _s1181531_
 ##### Opleiding:
+Windesheim Software Developer
 ##### Uitgave:
-##### Datum: (dd/mm/jjjj)
+1
+##### Datum:
+30-10-2023
 ##### Versie:
+2
 ________
 
 ## (Inhoudsopgave)
@@ -283,5 +292,5 @@ User story 19
 
 
 # 8. Bijlagen
-[Requirement bestand met User Stories](https://liveadminwindesheim.sharepoint.com/:w:/r/sites/O365-DeAppartners/Gedeelde%20documenten/General/SL3/Requirements.docx?d=w07c72e4ff6114baea3d968c125927f21&csf=1&web=1&e=ITdL3j)
-[Figma met Wireframes, Design en Use Cases](https://www.figma.com/file/mA4CJnph0LpLMlgcGTUEn4/Nav-Graph-SL3?type=design&node-id=0%3A1&mode=design&t=AtKw31JeMXiWsxmy-1)
+* [Requirement bestand met User Stories](https://liveadminwindesheim.sharepoint.com/:w:/r/sites/O365-DeAppartners/Gedeelde%20documenten/General/SL3/Requirements.docx?d=w07c72e4ff6114baea3d968c125927f21&csf=1&web=1&e=ITdL3j)
+* [Figma met Wireframes, Design en Use Cases](https://www.figma.com/file/mA4CJnph0LpLMlgcGTUEn4/Nav-Graph-SL3?type=design&node-id=0%3A1&mode=design&t=AtKw31JeMXiWsxmy-1)
