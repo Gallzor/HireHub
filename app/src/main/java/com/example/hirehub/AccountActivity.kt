@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
+import androidx.appcompat.app.AlertDialog
 class AccountActivity : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
@@ -34,14 +34,27 @@ class AccountActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         btnDeleteAccount.setOnClickListener {
-            val username = sessionManager.getUsername()
-            val password = sessionManager.getPassword()
-            if (username != null && password != null) {
-                deleteUserAccount(username, password)
-            } else {
-                Toast.makeText(this, "Gebruikersnaam of wachtwoord ontbreekt.", Toast.LENGTH_SHORT).show()
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Account verwijderen")
+            builder.setMessage("Weet je zeker dat je je account wilt verwijderen?")
+
+            builder.setPositiveButton("Ja") { _, _ ->
+                val username = sessionManager.getUsername()
+                val password = sessionManager.getPassword()
+                if (username != null && password != null) {
+                    deleteUserAccount(username, password)
+                } else {
+                    Toast.makeText(this, "Gebruikersnaam of wachtwoord ontbreekt.", Toast.LENGTH_SHORT).show()
+                }
             }
+            builder.setNegativeButton("Nee") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            val dialog = builder.create()
+            dialog.show()
         }
 
         btnLogout.setOnClickListener {
