@@ -1,5 +1,93 @@
-#README
+# README
 
-School assignment by Faissal & Gallyon
+# Kotlin Mobiel Applicatie gemaakt door:
+* _Faissal Koulej_
+* _S1184579_
+& 
+* _Gallyon Rozenkamp_
+* _s1181531_
 
-(fill in..)
+# Gebruikers handleiding voor HireHub
+
+## Inleiding
+
+Beste gebruikers,
+
+HireHub is een applicatie ontwikkelt door Faissal en Gallyon voor het fictieve bedrijf "HireHub Resources".
+De specialisatie van HireHub Resources is HR Recruitment. Hierdoor is er een vraag naar een platform waarbij sollicitanten een profiel kunnen aanmaken en delen met een recruiter. 
+De recruiter kan vervolgens de profiel aanpassen naar wens. Hierbij is het belangrijk dat de profiel in de huisstijl van HireHub wordt gemaakt. Ook kan de sollicitant de profielen van andere gebruikers zien.
+HireHub applicatie is een pilot om te kijken of het plan realistisch is voordat er een multiplatform systeem wordt uitgerold.
+
+## Installatie
+
+Om HireHub op te starten zijn er twee manieren.
+1. ### Git + Android Studio
+De applicatie opstarten als Android Studio App.
+Ga naar de Github Repository van de HireHub Project.
+![img.png](img.png)
+Klik daarna op de groene "Code" knop, er opent een scherm. Klik met de muis op de HTTPS link, of het kopieer knopje.
+![img_1.png](img_1.png)
+Sluit de Github af en open Android Studio.
+2. ### APK + VM/Mobiel
+(...Vul in als duidelijk is hoe installatie met APK gaat)
+
+## Gebruik
+Na de installatie en het starten van de applicatie kunnen de functies van HireHub worden gebruikt.
+De applicatie heeft twee thema's: Een nacht en dag stand. Afhankelijk van hoe de installatie is gedaan en op welke "Virtual Machine"
+de applicatie wordt getoond, kunnen de kleuren verschillen.
+Voor de rest van de uitleg zal voor context de voorbeelden van de applicatie in dag-stand zijn.
+
+#### Home
+Als eerste kom je op de begin pagina terecht, waar alle profielen van de gebruikers worden getoond.
+Er kan op iedere profiel worden geklikt en de gegevens van de profiel zijn te zien.
+Voor de ongeregistreerde gebruiker is er maar 1 knop beschikbaar in het onderste menu: De homepage knop.
+Ook is er een account-knop in de rechter bovenhoek aanwezig. Hier kan een anonieme gebruiker inloggen of zich registreren.
+Als de gebruiker al is ingelogd dan wordt de gebruiker via de knop doorgestuurd naar zijn accountpagina.
+
+Als een gebruiker is ingelogd, dan zal het menu aan de onderkant veranderen en er een profielknop aan de rechterkant bijkomen.
+Als een gebruiker is ingelogd, dan zal het menu aan de onderkant veranderen en er een profiel overzicht aan de rechterkant bijkomen.
+Als een gebruiker is ingelogd, dan zal het menu aan de onderkant veranderen en er in het midden een gebruiker overzicht komen met een profiel overzicht aan de rechterkant erbij.
+
+#### Accountpagina
+...Vul in als af is
+
+#### Profiel gebruiker
+Als de gebruiker is ingelogd dan kan de gebruiker via de profielknop rechtsonderin op de homepagina menu naar zijn profiel pagina gaan.
+Hier kan de gebruiker zijn profiel bekijken. Als er nog geen profiel is, dan kan de gebruiker een profiel aanmaken met de "New Profile" knop.
+Vervolgens kan de gebruiker zijn profiel invullen en opslaan met de "Save" knop.
+De gebruiker kan zijn profiel details bekijken door op de profiel te klikken. De gegevens zijn aanpasbaar en ook weer op te slaan met een "Save" knop.
+De profiel kan verwijdert worden met de emmer knop en de gebruiker kan zijn profiel (on)zichtbaar maken met de oog knop.
+Met de "Back" knop kan de gebruiker een stap terug.
+
+####  Profielen beheer
+Als een admin of recruiter is ingelogd, dan hebben zij beide een overzicht op alle profielen. Zij kunnen de profielen bekijken, aanpassen, verwijderen en de zichtbaarheid veranderen.
+Op elk profiel kan worden gedrukt om de gegevens aan te passen.
+Zij kunnen beide een nieuw profiel aanmaken door de "New profile" knop aan te klikken. Als er dan gegevens worden ingevuld en op de "Save" knop wordt gedrukt, dan is er een aangemaakt.
+Met de "Back" knop kan de admin of recruiter een stap terug.
+#### Gebruiker beheer
+Als een admin is ingelogd, dan heeft hij een overzicht op alle gebruikers. De admin kan de gebruikers bekijken, aanpassen, verwijderen en de zichtbaarheid veranderen.
+Op elke gebruiker kan worden gedrukt om de gegevens aan te passen.
+De admin kan een nieuw profiel aanmaken door de "New User" knop aan te klikken. Als er dan gegevens worden ingevuld en op de "Save" knop wordt gedrukt, dan is er een aangemaakt.
+Met de "Back" knop kan de admin een stap terug.
+
+## Rechten
+Om een bepaalde type en rol te simuleren is er aan de database een paar voorafgemaakte fictieve gebruikers toegevoegd.
+3 Gebruikers voor iedere rol en een handje vol sollicitanten om de pagina's te vullen.
+Met deze rollen kan worden ingelogd en de verschillende rechten kan dan worden getest.
+
+De drie rollen zijn als volgt:
+
+| Username    | Password        | Role |  
+|-------------|-----------------|------|
+| KopjeKoffie | Sollicitant1324 | SOL  | 
+| PindaReep   | Recruiter1234   | REC  | 
+| Kauwgumpje  | Admin1234       | AD   |
+
+## Gebruiker/Sollicitant
+De gebruiker staat bekend in de applicatie als "SOL" of "Sol", een afkorting voor Sollicitant.
+## Recruiter
+De recruiter staat bekend in de applicatie als "REC" of "Rec", een afkorting voor Recruiter.
+"PindaReep", "Recruiter1234", "REC"
+## Admin
+Een admin staat bekend in de applicatie als "AD" of "Ad", een afkorting voor Admin.
+"Kauwgumpje", "Admin1234", "AD"
