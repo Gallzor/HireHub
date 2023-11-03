@@ -3,7 +3,7 @@
 # Kotlin Mobiel Applicatie gemaakt door:
 * _Faissal Koulej_
 * _S1184579_
-& 
+  &
 * _Gallyon Rozenkamp_
 * _s1181531_
 
@@ -14,7 +14,7 @@
 Beste gebruikers,
 
 HireHub is een applicatie ontwikkelt door Faissal en Gallyon voor het fictieve bedrijf "HireHub Resources".
-De specialisatie van HireHub Resources is HR Recruitment. Hierdoor is er een vraag naar een platform waarbij sollicitanten een profiel kunnen aanmaken en delen met een recruiter. 
+De specialisatie van HireHub Resources is HR Recruitment. Hierdoor is er een vraag naar een platform waarbij sollicitanten een profiel kunnen aanmaken en delen met een recruiter.
 De recruiter kan vervolgens de profiel aanpassen naar wens. Hierbij is het belangrijk dat de profiel in de huisstijl van HireHub wordt gemaakt. Ook kan de sollicitant de profielen van andere gebruikers zien.
 HireHub applicatie is een pilot om te kijken of het plan realistisch is voordat er een multiplatform systeem wordt uitgerold.
 
@@ -74,7 +74,7 @@ Je kunt nu in de Emulator de applicatie bekijken!
 APK, kort voor Android Package Kit, is het bestandsformaat dat Android gebruikt om apps te verdelen of installeren.
 Door de APK kan de applicatie op een mobiel worden geopend zonder bijvoorbeeld Google Play Store.
 
-Zet het APK bestand over naar een android mobiel in kwestie via een USB kabel of een cloud, zoals Google drive. 
+Zet het APK bestand over naar een android mobiel in kwestie via een USB kabel of een cloud, zoals Google drive.
 Zet "Accepteer installaties van buiten af" of "Allow installation from unknown sources" aan.
 
 ## Gebruik
@@ -162,6 +162,6 @@ Een admin staat bekend in de applicatie als "AD" of "Ad", een afkorting voor Adm
 #### Profiel opbouw
 Omdat er in de eindopdracht niet helder is omschreven hoeveel data er in een profiel moet staan,
 is er door de ontwikkelaars gekozen voor een paar basis gegevens. Door de docenten is dit mondeling in de klaslokalen goedgekeurd.
-De gegevens in de profielen hoeven dus niet aan een officieel CV of portfolio te voldoen. 
+De gegevens in de profielen hoeven dus niet aan een officieel CV of portfolio te voldoen.
 Hierdoor is er ook gekozen om niet met profiel plaatjes te werken, omdat een CV meestal eentonig is.
 

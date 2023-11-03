@@ -30,28 +30,28 @@ HireHub applicatie is een pilot om te kijken of het plan realistisch is voordat 
 **Het Fictieve project**: _ontwikkeling van een recruitment applicatie voor de HR Recruitment Company genaamd HireHub Resources “HR”._
 
 Enkele belangrijke aspecten van het project zijn:
-* **Zakelijke doelstellingen**: 
-_Het fictieve bedrijf "HireHub Resources" wil het proces van HR Recruitment verbeteren. Ze willen een app genaamd "HireHub" ontwikkelen waarmee sollicitanten profielen kunnen maken en delen met recruiters. Het uiteindelijke doel is om deze profielen aan opdrachtgevers te presenteren in de huisstijl van HireHub Resources. Dit zal wervingsprocessen efficiënter maken en op maat gemaakte profielen aanbieden aan opdrachtgevers._
+* **Zakelijke doelstellingen**:
+  _Het fictieve bedrijf "HireHub Resources" wil het proces van HR Recruitment verbeteren. Ze willen een app genaamd "HireHub" ontwikkelen waarmee sollicitanten profielen kunnen maken en delen met recruiters. Het uiteindelijke doel is om deze profielen aan opdrachtgevers te presenteren in de huisstijl van HireHub Resources. Dit zal wervingsprocessen efficiënter maken en op maat gemaakte profielen aanbieden aan opdrachtgevers._
 * **Complexiteit**:
-_Dit project omvat de ontwikkeling van een Android-app met functies voor profielbeheer. Daarnaast is er een database nodig voor gegevensopslag. De app moet voldoen aan privacy- en beveiligingsnormen vanwege gevoelige informatie_
-* **Technologieën**: 
-_Dit project maakt gebruik van moderne technologieën, waaronder: De HireHub-app wordt geschreven in de programmeertaal Kotlin voor Android-telefoons. Gegevens worden opgeslagen en beheerd in databases. Er worden beveiligingsmaatregelen geïmplementeerd om gegevens te beschermen en privacy te waarborgen._
+  _Dit project omvat de ontwikkeling van een Android-app met functies voor profielbeheer. Daarnaast is er een database nodig voor gegevensopslag. De app moet voldoen aan privacy- en beveiligingsnormen vanwege gevoelige informatie_
+* **Technologieën**:
+  _Dit project maakt gebruik van moderne technologieën, waaronder: De HireHub-app wordt geschreven in de programmeertaal Kotlin voor Android-telefoons. Gegevens worden opgeslagen en beheerd in databases. Er worden beveiligingsmaatregelen geïmplementeerd om gegevens te beschermen en privacy te waarborgen._
 ___________
 # 2. Systeem overview
 
-#### **Zakelijke doelstellingen:** 
+#### **Zakelijke doelstellingen:**
 Verbeterde HR Recruitment: HireHubs streeft naar verbeteringen in het HR Recruitment-proces om de efficiëntie te verhogen en de werving van geschikte kandidaten te vergemakkelijken.
 Betere Profielcreatie: HireHubs streeft ernaar om de creatie en beheer van profielen te verbeteren, waardoor recruiters snel toegang hebben tot relevante informatie.
 Om deze doelstellingen te bereiken, moeten bepaalde functionaliteiten in het systeem worden geïmplementeerd. Dit omvat onder andere zaken zoals profielbeheer, gebruikersbeheer, accountbeheer, database-opslag, gegevensbeveiliging en privacybescherming.
 
 #### **Context van project én stakeholders**
-HireHub wordt ontwikkeld in de context van HR Recruitment. Het project moet niet alleen voldoen aan de verwachtingen van sollicitanten en recruiters, maar ook concurreren met andere systemen in de HR-markt. 
+HireHub wordt ontwikkeld in de context van HR Recruitment. Het project moet niet alleen voldoen aan de verwachtingen van sollicitanten en recruiters, maar ook concurreren met andere systemen in de HR-markt.
 De belangrijkste stakeholders zijn de ontwikkelaars, de beoordelende docenten, sollicitanten, recruiters, admins, het managementteam van HireHub Resources en mogelijk derde partijen zoals databasebeheerders en beveiligingsdeskundigen.
 
 ![Stakeholder Diagram](https://i.imgur.com/chMAw35.png)
 
 #### **Technische vereisten**
-De technische vereisten omvatten zaken zoals de ontwikkeling van een Android-applicatie in Kotlin, databasebeheer voor gegevensopslag en implementatie van beveiligingsmaatregelen voor gegevensbescherming. 
+De technische vereisten omvatten zaken zoals de ontwikkeling van een Android-applicatie in Kotlin, databasebeheer voor gegevensopslag en implementatie van beveiligingsmaatregelen voor gegevensbescherming.
 Dit omvat aspecten zoals privacybescherming en gegevensbeveiliging volgens relevante normen zoals ISO 25010.
 ___________
 # 3. Systeemarchitectuur
@@ -77,16 +77,16 @@ Verder is het belangrijk dat iedere gebruiker een bepaalde type rol heeft, zoals
 # 5. Component Design
 
 Componenten van HireHub zijn bijvoorbeeld waar mensen zich registreren, mensen zich inloggen, waar we sollicitanten en profielen beheren, en de database.
-Een voorbeeld van hoe deze onderdelen samenwerken is dat het deel waar mensen zich registreren hun informatie verzamelt en bewaart. De delen voor sollicitanten en profielen gebruiken de database om informatie op te slaan en te veranderen. 
-Het deel voor profielbeheer laat ons de informatie aanpassen en beslissen wie die kan zien. 
+Een voorbeeld van hoe deze onderdelen samenwerken is dat het deel waar mensen zich registreren hun informatie verzamelt en bewaart. De delen voor sollicitanten en profielen gebruiken de database om informatie op te slaan en te veranderen.
+Het deel voor profielbeheer laat ons de informatie aanpassen en beslissen wie die kan zien.
 
-Als we kijken naar het registratiecomponent, moeten we voor technische eisen er voor zorgen dat het in staat is om gebruikersinformatie te verzamelen en op te slaan op een veilige manier. Voor de database moeten we ervoor zorgen dat deze de gegevens van sollicitanten en profielen kan beheren en bijwerken. 
-Het profielbeheercomponent moet ons de mogelijkheid bieden om profielen aan te passen en te beheren, en te beslissen wie deze kan zien. 
+Als we kijken naar het registratiecomponent, moeten we voor technische eisen er voor zorgen dat het in staat is om gebruikersinformatie te verzamelen en op te slaan op een veilige manier. Voor de database moeten we ervoor zorgen dat deze de gegevens van sollicitanten en profielen kan beheren en bijwerken.
+Het profielbeheercomponent moet ons de mogelijkheid bieden om profielen aan te passen en te beheren, en te beslissen wie deze kan zien.
 Elke component heeft zijn eigen technische vereisten om ervoor te zorgen dat HireHub goed functioneert.
 
 Wij hebben een paar diagrammen gemaakt die een beeld geven van hoe de componenten met elkaar of de gebruiker werken:
 
-Componenten voor anonieme gebruikers: 
+Componenten voor anonieme gebruikers:
 
 ![Use case 1 anoniem](https://i.imgur.com/QgENlio.png)
 
@@ -124,7 +124,7 @@ De inlog pagina moest gemakkelijk naar registratie gaan en omgekeerd. Op de acco
 
 ![Registratie](https://i.imgur.com/eYiw3lZ.png)
 
-De profielen moesten op een gemakkelijke plek worden beheerd door de admin en recruiter en dit geldt ook voor alle gebruikers. 
+De profielen moesten op een gemakkelijke plek worden beheerd door de admin en recruiter en dit geldt ook voor alle gebruikers.
 
 ![Beheerprofiel](https://i.imgur.com/jkMA1NL.png)
 
@@ -150,14 +150,14 @@ Dit is omdat het als opdracht werd gegeven in de les, maar ook omdat het ons uit
 
 * _Een gebruiker kan een account aanmaken._
 * Een gebruiker kan inloggen met zijn gebruikersnaam.
-* Een gebruiker kan inloggen met zijn wachtwoord. 
+* Een gebruiker kan inloggen met zijn wachtwoord.
 * Een gebruiker heeft een accountpagina.
 * Een gebruiker kan een profiel/portfolio van een individuele sollicitant bekijken.
 * Een Sollicitant kan zijn wachtwoord wijzigen op de accountpagina.
 * Een sollicitant kan zijn account verwijderen.
 * Een sollicitant kan uitloggen.
 * Een sollicitant kan een profiel/portfolio aanmaken of veranderen.
-* Een sollicitant kan zijn profiel/portfolio's zichtbaarheid aanpassen. 
+* Een sollicitant kan zijn profiel/portfolio's zichtbaarheid aanpassen.
 * Een recruiter kan alle bestaande profielen/portfolio's aanpassen of verwijderen.
 * Een recruiter kan van alle profielen/portfolio's de zichtbaarheid aanpassen.
 * Een admin kan alle accounts bekijken, aanpassen, aanmaken of verwijderen.
@@ -183,7 +183,7 @@ User story 1
 | Title:                | Description                                                                                       | Acceptance Criteria                                                                                                                                                                                                                                                                                                                      |  
 |-----------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Gebruikersnaam kiezen | Als een gebruiker wil ik een gebruikersnaam kunnen kiezen, zodat ik een account kan samenstellen. | - Er moet een knop aanwezig zijn om te registreren. - Er moet een veld aanwezig zijn om de gebruikersnaam in te vullen. - Een gebruiker kan terug naar de beginpagina.  - De gebruikersnaam wordt gecheckt op duplicaten. - De gebruikersnaam wordt gecheckt op spellingseisen. - De gebruikersnaam wordt gecheckt op beveiligingseisen. | 
-                                                                                                                                                                                                                                                                                                                                    |
+|
 
 User story 2
 
