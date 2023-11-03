@@ -9,12 +9,11 @@ import com.example.hirehub.databases.HireHubApplication
 import com.example.hirehub.LoginActivity
 import com.example.hirehub.R
 import com.example.hirehub.utils.SessionManager
-import com.example.hirehub.repositories.UserRepository
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
+import kotlinx.coroutines.withContext
+import androidx.appcompat.app.AlertDialog
 class AccountActivity : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
@@ -35,12 +34,27 @@ class AccountActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
         btnDeleteAccount.setOnClickListener {
-            // Voeg hier de logica toe om het account te verwijderen
-            val userId = sessionManager.getUserId()
-            if (userId != -1) {
-                deleteUserAccount(userId)
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Account verwijderen")
+            builder.setMessage("Weet je zeker dat je je account wilt verwijderen?")
+
+            builder.setPositiveButton("Ja") { _, _ ->
+                val username = sessionManager.getUsername()
+                val password = sessionManager.getPassword()
+                if (username != null && password != null) {
+                    deleteUserAccount(username, password)
+                } else {
+                    Toast.makeText(this, "Gebruikersnaam of wachtwoord ontbreekt.", Toast.LENGTH_SHORT).show()
+                }
             }
+            builder.setNegativeButton("Nee") { dialog, _ ->
+                dialog.dismiss()
+            }
+
+            val dialog = builder.create()
+            dialog.show()
         }
 
         btnLogout.setOnClickListener {
@@ -51,34 +65,27 @@ class AccountActivity : AppCompatActivity() {
         }
     }
 
-    private fun deleteUserAccount(userId: Int) {
-        val app = application as? HireHubApplication ?: return
-        val userRepository = app.userRepository
-        val profileRepository = app.profileRepository
-        val username = sessionManager.getUsername()
-        val password = sessionManager.getPassword() // Verkrijg het wachtwoord op een veilige manier
+    private fun deleteUserAccount(username: String, password: String) {
+        CoroutineScope(Dispatchers.Main).launch {
+            val app = application as? HireHubApplication ?: return@launch
+            val userRepository = app.userRepository
 
-        if (username != null && password != null) {
-            val user = userRepository.getUserByUsernameAndPassword(username, password)
+            val user = withContext(Dispatchers.IO) {
+                userRepository.getUserByUsernameAndPassword(username, password)
+            }
 
             if (user != null) {
-                userRepository.deleteUser(user)
-
-                val profile = profileRepository.getProfileByUserId(userId).value
-                if (profile != null) {
-                    profileRepository.deleteProfile(profile)
+                withContext(Dispatchers.IO) {
+                    userRepository.deleteUser(user)
                 }
-
-                Toast.makeText(this, "Account verwijderd.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AccountActivity, "Account verwijderd.", Toast.LENGTH_SHORT).show()
                 sessionManager.clearUserDetails() // Sessie wissen
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this@AccountActivity, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(this, "Fout bij het verwijderen van het account.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AccountActivity, "Fout bij het verwijderen van het account.", Toast.LENGTH_SHORT).show()
             }
-        } else {
-            Toast.makeText(this, "Gebruikersnaam of wachtwoord ontbreekt.", Toast.LENGTH_SHORT).show()
         }
     }
 }
