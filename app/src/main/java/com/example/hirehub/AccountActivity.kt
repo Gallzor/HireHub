@@ -18,6 +18,7 @@ class AccountActivity : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
@@ -25,6 +26,7 @@ class AccountActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
 
         val btnChangePassword = findViewById<Button>(R.id.btnChangePassword)
+        val accountBackButton = findViewById<Button>(R.id.accountBackButton)
         val btnDeleteAccount = findViewById<Button>(R.id.btnDeleteAccount)
         val btnLogout = findViewById<Button>(R.id.btnLogout)
 
@@ -32,6 +34,12 @@ class AccountActivity : AppCompatActivity() {
             // Navigeer naar het wachtwoordwijzigingsscherm
             val intent = Intent(this, ChangePasswordActivity::class.java)
             startActivity(intent)
+        }
+
+        // Koppelen van klikactie aan de newProfileBackButton
+        accountBackButton.setOnClickListener {
+            // Teruggaan naar het vorige scherm
+            finish()
         }
 
 
@@ -62,6 +70,7 @@ class AccountActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
+            Toast.makeText(this@AccountActivity, "You are logged out!", Toast.LENGTH_SHORT).show()
         }
     }
 

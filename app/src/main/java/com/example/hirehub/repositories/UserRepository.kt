@@ -59,10 +59,20 @@ class UserRepository(private val userDao: UserDao, private val database: HireHub
     fun getUserById(userId: Int): User? {
         return userDao.getUserById(userId)
     }
+
+    /**
+     * Voeg meerdere gebruikers tegelijkertijd toe aan de database met behulp van een transactie.
+     * @param users Een lijst van gebruikers om toe te voegen.
+     */
     @Transaction
     fun addUsersWithTransaction(users: List<User>) {
         database.userDao().insertUsers(users)
     }
+
+    /**
+     * Controleer of er al gebruikers in de database aanwezig zijn.
+     * @return True als er gebruikers aanwezig zijn, anders False.
+     */
     @WorkerThread
     fun usersExist(): Boolean {
         // Voer een query uit om te controleren of er al gebruikers in de database zijn

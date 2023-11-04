@@ -150,11 +150,11 @@ De drie rollen zijn als volgt:
 | PindaReep   | Recruiter1234   | REC  | 
 | Kauwgumpje  | Admin1234       | AD   |
 
-## Gebruiker/Sollicitant
+#### Gebruiker/Sollicitant
 De gebruiker staat bekend in de applicatie als "SOL" of "Sol", een afkorting voor Sollicitant.
-## Recruiter
+#### Recruiter
 De recruiter staat bekend in de applicatie als "REC" of "Rec", een afkorting voor Recruiter.
-## Admin
+#### Admin
 Een admin staat bekend in de applicatie als "AD" of "Ad", een afkorting voor Admin.
 
 ## Comply or complain
@@ -165,3 +165,9 @@ is er door de ontwikkelaars gekozen voor een paar basis gegevens. Door de docent
 De gegevens in de profielen hoeven dus niet aan een officieel CV of portfolio te voldoen.
 Hierdoor is er ook gekozen om niet met profiel plaatjes te werken, omdat een CV meestal eentonig is.
 
+#### Verwijderen gebruiker met profiel
+Als een gebruiker zijn account verwijdert of als een admin zijn account verwijdert, dan wordt de aangesloten profiel niet verwijdert.
+Normaal gesproken is dit van belang vanwege de AVG-wet en dat alle data weggegooit wordt.
+Echter, omdat HireHub draait om het maken van profielen en de mogelijkheid voor recruiters om profielen te beheren,
+is er juist om die reden besloten om de profielen te bewaren, zodat er een mogelijkheid voor de recruiters blijft om waar nodig de profielen alsnog te gebruiken.
+Zo kan, als de gebruiker weer wil aansluiten aan HireHub, de mogelijkheid er voor de recruiter om de gegevens uit de oude profiel te halen.
