@@ -13,6 +13,9 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
+// Bij de UI-Test wordt er gekeken of een gebruiker op de profielen lijst die op de landingspagina
+// de profiel gegevens van iedere individuele gebruiker kan bekijken door er op te klikken
+// De test is geslaagd als de standaard titels van de profiel van de gebruiker aanwezig zijn.
 @RunWith(AndroidJUnit4::class)
 class MainActivityUITest {
 

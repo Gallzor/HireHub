@@ -15,6 +15,9 @@ import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 import org.robolectric.RobolectricTestRunner
 
+//Bij de sessionmanager unit test wordt er gekeken of de gegevens van een ingelogde gebruiker
+// wordt opgeslagen, zodat dat elke pagina weet dat de gebruiker is ingelogd.
+// De test is geslaagd als de ingevulde gegevens worden opgeslagen en hetzelfde zijn als de waardes aanwezig in de sessionmanager.
 @RunWith(RobolectricTestRunner::class)
 class SessionManagerUnitTest {
 

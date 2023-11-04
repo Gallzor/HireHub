@@ -11,6 +11,8 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
+//Bij de registratie unit test wordt er gekeken of iemand zich kan registreren.
+// De test is geslaagd als de aangemaakte gebruiker opgehaald kan worden uit de database/repository.
 class RegistrationUnitTest {
 
     @get:Rule

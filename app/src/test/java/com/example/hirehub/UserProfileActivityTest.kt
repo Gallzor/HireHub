@@ -17,6 +17,10 @@ import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.robolectric.annotation.Config
 
+// De UserProfileActivity unit test bekijkt of een ingelogde gebruiker (sollicitant)
+// Een profiel voor zichzelf kan aanmaken en gegevens hiervan kan invullen.
+// de test is geslaagd als de waardes van de profiel kan worden ingevuld, de gegevens worden opgeslagen
+// En de profiel uiteindelijk aanwezig is in de database doordat het een id heeft gekregen met de user id van de gebruiker.
 @RunWith(AndroidJUnit4::class)
 @Config(manifest = Config.NONE)
 class ProfileViewModelTest {
