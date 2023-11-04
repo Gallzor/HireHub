@@ -18,6 +18,7 @@ class AccountActivity : AppCompatActivity() {
 
     private lateinit var sessionManager: SessionManager
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
@@ -69,6 +70,7 @@ class AccountActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
+            Toast.makeText(this@AccountActivity, "You are logged out!", Toast.LENGTH_SHORT).show()
         }
     }
 
