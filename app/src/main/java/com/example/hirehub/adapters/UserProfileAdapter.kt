@@ -12,13 +12,16 @@ import com.example.hirehub.viewholders.ProfileboardViewHolder
 import com.example.hirehub.viewholders.UserProfileViewHolder
 
 class UserProfileAdapter(
+    // Lijst met gebruikersprofielen die aan de adapter wordt doorgegeven
     private var profiles: List<Profile>,
+    // Click listener voor gebruikersacties
     private val clickListener: ProfileboardClickListener
 ) : RecyclerView.Adapter<UserProfileViewHolder>() {
 
-    private lateinit var sessionManager: SessionManager
+    private lateinit var sessionManager: SessionManager // Instantie van SessionManager voor gebruikerssessiebeheer
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserProfileViewHolder {
+        // Inflating van de gebruikersprofielitem layout en aanmaken van een view holder
         val inflater = LayoutInflater.from(parent.context)
         val binding = UserProfileItemCellBinding.inflate(inflater, parent, false)
         return UserProfileViewHolder(parent.context, binding, clickListener)
@@ -30,12 +33,14 @@ class UserProfileAdapter(
     }
 
     override fun getItemCount(): Int {
+        // Geeft het aantal gebruikersprofielen in de lijst terug
         return profiles.size
     }
 
-    // Update the list of profiles
+    // Functie om de lijst met gebruikersprofielen bij te werken met nieuwe gegevens
     fun updateProfiles(updatedProfiles: List<Profile>) {
         profiles = updatedProfiles
+        // Breng de adapter op de hoogte van de gewijzigde gegevens
         notifyDataSetChanged()
     }
 }

@@ -93,10 +93,10 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
     private fun showWelcomeProfileMessage() {
         // Haal de gebruikersnaam op uit de SessionManager
         val sessionManager = SessionManager(this)
-        val username = sessionManager.getUsername() ?: "Gebruiker"
+        val username = sessionManager.getUsername() ?: "User"
 
         // Update de welkomsttekst met de gebruikersnaam in de UserProfile
-        binding.titleWelcomeUserProfile.text = "Welkom, $username"
+        binding.titleWelcomeUserProfile.text = "Welcome, $username,"
     }
 
     private fun updateUIBasedOnUserProfile(profiles: List<Profile>) {

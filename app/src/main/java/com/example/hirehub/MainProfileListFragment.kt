@@ -15,6 +15,10 @@ import com.example.hirehub.factories.ProfileModelFactory
 import com.example.hirehub.models.Profile
 import com.example.hirehub.viewmodels.ProfileViewModel
 
+/**
+ * MainProfileListFragment is een Fragment dat de lijst met hoofdprofielen van gebruikers weergeeft.
+ * Het haalt de profielen op van de ViewModel en toont ze in een RecyclerView.
+ */
 class MainProfileListFragment : Fragment() {
     private var _binding: FragmentMainProfileListBinding? = null
     private val binding get() = _binding!!

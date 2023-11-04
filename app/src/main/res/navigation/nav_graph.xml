@@ -13,30 +13,6 @@
         android:id="@+id/mainActivity"
         android:name="com.example.hirehub.MainActivity"
         android:label="MainActivity" />
-    <fragment
-        android:id="@+id/landingtestFragment"
-        android:name="com.example.hirehub.landingtestFragment"
-        android:label="fragment_landingtest"
-        tools:layout="@layout/fragment_landingtest" >
-        <action
-            android:id="@+id/action_landingtestFragment_to_mainActivity"
-            app:destination="@id/mainActivity" />
-        <action
-            android:id="@+id/action_landingtestFragment_to_userboardActivity"
-            app:destination="@id/userboardActivity" />
-        <action
-            android:id="@+id/action_landingtestFragment_to_profileboardActivity"
-            app:destination="@id/profileboardActivity" />
-        <action
-            android:id="@+id/action_landingtestFragment_to_loginActivity"
-            app:destination="@id/loginActivity" />
-        <action
-            android:id="@+id/action_landingtestFragment_to_registrationActivity"
-            app:destination="@id/registrationActivity" />
-        <action
-            android:id="@+id/action_landingtestFragment_to_userProfileActivity"
-            app:destination="@id/userProfileActivity" />
-    </fragment>
     <activity
         android:id="@+id/profileboardActivity"
         android:name="com.example.hirehub.Profileboard.ProfileboardActivity"
