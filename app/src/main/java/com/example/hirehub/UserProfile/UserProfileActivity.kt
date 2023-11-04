@@ -18,6 +18,7 @@ import com.example.hirehub.factories.ProfileModelFactory
 import com.example.hirehub.models.Profile
 import com.example.hirehub.utils.SessionManager
 import com.example.hirehub.viewmodels.ProfileViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
 
@@ -29,6 +30,11 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
     }
 
     private var userProfile: Profile? = null
+
+    // Functie om een Snackbar-bericht weer te geven
+    private fun showSnackbar(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -129,5 +135,11 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
     // Verandert de zichtbaarheid van een profiel in de profileboard
     override fun toggleVisibility(profile: Profile) {
         profileViewModel.toggleProfileVisibility(profile)
+        val message = if (profile.isVisible) {
+            "Your Profile is visible for others!"
+        } else {
+            "Your Profile is invisible for others!"
+        }
+        showSnackbar(message)
     }
 }

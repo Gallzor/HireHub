@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.hirehub.databinding.FragmentDeleteUserSheetBinding
 import com.example.hirehub.models.User
@@ -20,6 +21,9 @@ class DeleteUserSheetFragment(var user: User?) : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentDeleteUserSheetBinding
     private lateinit var userViewModel: UserViewModel
 
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -37,6 +41,9 @@ class DeleteUserSheetFragment(var user: User?) : BottomSheetDialogFragment() {
     private fun confirmDeleteAction() {
         // Haal de gebruiker op uit de ViewModel en gebruik de juiste functie om deze te verwijderen.
         userViewModel.deleteUser(user!!)
+
+        // Laat bericht zien dat het is gelukt
+        showToast("The user has been deleted!")
 
         // Sluit het bottom sheet nadat de gebruiker is verwijderd
         dismiss()

@@ -40,6 +40,11 @@ class ProfileboardActivity : AppCompatActivity(), ProfileboardClickListener
         ProfileModelFactory((application as HireHubApplication).profileRepository)
     }
 
+    // Functie om een Snackbar-bericht weer te geven
+    private fun showSnackbar(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Inflating (opblazen) van de activity layout en deze instellen als de content view
@@ -109,6 +114,12 @@ class ProfileboardActivity : AppCompatActivity(), ProfileboardClickListener
     // Verandert de zichtbaarheid van een profiel in de profileboard
     override fun toggleVisibility(profile: Profile) {
         profileViewModel.toggleProfileVisibility(profile)
+        val message = if (profile.isVisible) {
+            "The Profile is visible for others!"
+        } else {
+            "The Profile is invisible for others!"
+        }
+        showSnackbar(message)
     }
 
 }
