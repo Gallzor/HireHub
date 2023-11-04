@@ -31,12 +31,14 @@ class ProfileViewModelTest {
 
     @Before
     fun setUp() {
+        // Initialiseer Mockito annotaties en bereid de viewModel voor op testen
         MockitoAnnotations.initMocks(this)
         viewModel = ProfileViewModel(repository)
     }
 
     @Test
     fun testInsertProfile() {
+        // Maak een testprofiel aan met voorbeeldgegevens
         val testProfile = Profile(
             "John",
             "Doe",
@@ -51,20 +53,23 @@ class ProfileViewModelTest {
             1
         )
 
-        // Maak een LiveData-object van testProfile
+        // Maak een MutableLiveData-object van testProfile en wijs het testProfiel toe aan de waarde
         val liveDataTestProfile = MutableLiveData<Profile?>()
         liveDataTestProfile.value = testProfile
 
-        // Stub de repository om een niet-null waarde terug te geven voor de opgegeven gebruikers-ID
+        // Stel de repository in op een niet-null waarde retourneren voor het opgegeven gebruikers-ID
         Mockito.`when`(repository.getProfileByUserId(1)).thenReturn(liveDataTestProfile)
 
+        // Roep de methode aan om het testprofiel toe te voegen aan de ViewModel
         viewModel.addProfile(testProfile)
 
-        // Hier kun je een observer toevoegen om te controleren of het profiel is toegevoegd
+        // Voeg een observer toe om te controleren of het profiel is toegevoegd aan LiveData
         val observer: Observer<Profile?> = Observer { profile ->
             // Controleer of de waarden van het waargenomen profiel overeenkomen met de verwachte waarden
             assertEquals(testProfile, profile)
         }
+
+        // Laat de observer luisteren naar wijzigingen in LiveData
         viewModel.getProfileByUserId(1).observeForever(observer)
     }
 }
