@@ -54,7 +54,7 @@ class UserLoginFragment : Fragment() {
             if (validateInputs(username, password)) {
                 performLogin(username, password)
             } else {
-                Toast.makeText(requireContext(), "Vul alle velden correct in.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please fill in all fields.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -84,7 +84,7 @@ class UserLoginFragment : Fragment() {
                 requireActivity().runOnUiThread {
                     Toast.makeText(
                         requireContext(),
-                        "Inloggen succesvol!",
+                        "You have been logged in!",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -100,7 +100,7 @@ class UserLoginFragment : Fragment() {
                 requireActivity().runOnUiThread {
                     Toast.makeText(
                         requireContext(),
-                        "Ongeldige inloggegevens.",
+                        "Error: Incorrect input.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

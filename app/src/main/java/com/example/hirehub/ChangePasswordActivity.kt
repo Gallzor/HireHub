@@ -55,7 +55,7 @@ class ChangePasswordActivity : AppCompatActivity() {
                             runOnUiThread {
                                 Toast.makeText(
                                     this@ChangePasswordActivity,
-                                    "Ongeldige oude wachtwoord.",
+                                    "Error: Incorrect old password.",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -65,7 +65,7 @@ class ChangePasswordActivity : AppCompatActivity() {
                         runOnUiThread {
                             Toast.makeText(
                                 this@ChangePasswordActivity,
-                                "Wachtwoord succesvol gewijzigd.",
+                                "Password is changed!.",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -76,10 +76,10 @@ class ChangePasswordActivity : AppCompatActivity() {
                         finish() // Optioneel: sluit de ChangePasswordActivity.
                     }
                 } else {
-                    Toast.makeText(this@ChangePasswordActivity, "Gebruiker niet ingelogd.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ChangePasswordActivity, "User is not logged in.", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this@ChangePasswordActivity, "Vul alle velden correct in.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ChangePasswordActivity, "Please fill in all fields.", Toast.LENGTH_SHORT).show()
             }
         }
 
