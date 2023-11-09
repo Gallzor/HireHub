@@ -136,9 +136,9 @@ class UserProfileActivity : AppCompatActivity(), ProfileboardClickListener {
     override fun toggleVisibility(profile: Profile) {
         profileViewModel.toggleProfileVisibility(profile)
         val message = if (profile.isVisible) {
-            "Your Profile is visible for others!"
-        } else {
             "Your Profile is invisible for others!"
+        } else {
+            "Your Profile is visible for others!"
         }
         showSnackbar(message)
     }

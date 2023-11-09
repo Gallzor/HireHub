@@ -1,74 +1,118 @@
 <!-- res/layout/activity_account.xml -->
 
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="63dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="20dp"
+    app:cardCornerRadius="50dp"
+    app:cardElevation="20dp"
     tools:context=".AccountActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your account information"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
-
-
-    <Button
-        android:id="@+id/btnChangePassword"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/hirehub_purple"
-        android:elevation="4dp"
-        android:text="Change password"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textViewAccountInformationTitle"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="Your account information"
+            android:textColor="@color/hirehub_blue"
+            android:textSize="30sp"
+            android:textStyle="italic" />
 
 
-    <Button
-        android:id="@+id/btnDeleteAccount"
+        <Button
+            android:id="@+id/btnChangePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/hirehub_purple"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Change password"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp" />
+
+
+        <Button
+            android:id="@+id/btnDeleteAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Delete your account"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp" />  <!-- Achtergrondkleur -->
+
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/hirehub_purple"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="21sp" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/design_default_color_error"
-        android:elevation="4dp"
-        android:text="Delete your account"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />  <!-- Achtergrondkleur -->
+        android:layout_height="match_parent"
+        android:gravity="start"
+        android:padding="15dp">
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/accountBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#D458F8"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:text="Back"
+            android:textColor="?colorOnPrimary"
+            android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/hirehub_purple"
-        android:elevation="4dp"
-        android:text="Logout"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+    </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/accountBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:backgroundTint="#D458F8"
-        android:text="Back"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:iconTint="?colorOnPrimary" />
-
-
-</LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

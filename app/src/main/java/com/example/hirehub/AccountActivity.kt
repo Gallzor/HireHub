@@ -45,19 +45,19 @@ class AccountActivity : AppCompatActivity() {
 
         btnDeleteAccount.setOnClickListener {
             val builder = AlertDialog.Builder(this)
-            builder.setTitle("Account verwijderen")
-            builder.setMessage("Weet je zeker dat je je account wilt verwijderen?")
+            builder.setTitle("Delete account")
+            builder.setMessage("Are you sure you want to delete your account?")
 
-            builder.setPositiveButton("Ja") { _, _ ->
+            builder.setPositiveButton("Yes!") { _, _ ->
                 val username = sessionManager.getUsername()
                 val password = sessionManager.getPassword()
                 if (username != null && password != null) {
                     deleteUserAccount(username, password)
                 } else {
-                    Toast.makeText(this, "Gebruikersnaam of wachtwoord ontbreekt.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Username or password is missing.", Toast.LENGTH_SHORT).show()
                 }
             }
-            builder.setNegativeButton("Nee") { dialog, _ ->
+            builder.setNegativeButton("No!") { dialog, _ ->
                 dialog.dismiss()
             }
 
@@ -67,7 +67,7 @@ class AccountActivity : AppCompatActivity() {
 
         btnLogout.setOnClickListener {
             sessionManager.clearUserDetails() // Sessie wissen
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
             Toast.makeText(this@AccountActivity, "You are logged out!", Toast.LENGTH_SHORT).show()
@@ -87,13 +87,13 @@ class AccountActivity : AppCompatActivity() {
                 withContext(Dispatchers.IO) {
                     userRepository.deleteUser(user)
                 }
-                Toast.makeText(this@AccountActivity, "Account verwijderd.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AccountActivity, "Account has been deleted.", Toast.LENGTH_SHORT).show()
                 sessionManager.clearUserDetails() // Sessie wissen
-                val intent = Intent(this@AccountActivity, LoginActivity::class.java)
+                val intent = Intent(this@AccountActivity, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(this@AccountActivity, "Fout bij het verwijderen van het account.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@AccountActivity, "Error: Can't delete account.", Toast.LENGTH_SHORT).show()
             }
         }
     }

@@ -9,10 +9,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="2dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="63dp"
+        android:layout_marginEnd="20dp"
+        android:elevation="20dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/menuLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,38 +25,4 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/menuLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button 1"
-            android:background="?android:attr/selectableItemBackground"
-            android:onClick="handleButton1Click" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button 2"
-            android:background="?android:attr/selectableItemBackground"
-            android:onClick="handleButton2Click" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button 3"
-            android:background="?android:attr/selectableItemBackground"
-            android:onClick="handleButton3Click" />
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

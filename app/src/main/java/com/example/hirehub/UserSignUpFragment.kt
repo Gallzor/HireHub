@@ -47,7 +47,7 @@ class UserSignUpFragment : Fragment() {
             if (validateInputs(username, password)) {
                 performRegistration(username, password)
             } else {
-                Toast.makeText(requireContext(), "Vul alle velden correct in.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please fill in all fields.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -71,7 +71,7 @@ class UserSignUpFragment : Fragment() {
             saveUser(newUser)
 
             requireActivity().runOnUiThread {
-                Toast.makeText(requireContext(), "Registratie succesvol!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Your account is created!", Toast.LENGTH_SHORT).show()
                 navigateToLogin()
             }
         }
