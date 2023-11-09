@@ -67,7 +67,7 @@ class AccountActivity : AppCompatActivity() {
 
         btnLogout.setOnClickListener {
             sessionManager.clearUserDetails() // Sessie wissen
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
             Toast.makeText(this@AccountActivity, "You are logged out!", Toast.LENGTH_SHORT).show()
@@ -89,7 +89,7 @@ class AccountActivity : AppCompatActivity() {
                 }
                 Toast.makeText(this@AccountActivity, "Account has been deleted.", Toast.LENGTH_SHORT).show()
                 sessionManager.clearUserDetails() // Sessie wissen
-                val intent = Intent(this@AccountActivity, LoginActivity::class.java)
+                val intent = Intent(this@AccountActivity, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {

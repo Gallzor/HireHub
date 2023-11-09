@@ -69,14 +69,19 @@ Als het goed is opent er dan een mobiele weergave in het tabje "Runnin devices",
 Je kunt nu in de Emulator de applicatie bekijken!
 
 2. ### APK + VM/Mobiel(Android)
-(...Vul in/maak af als duidelijk is hoe installatie met APK gaat)
 
 APK, kort voor Android Package Kit, is het bestandsformaat dat Android gebruikt om apps te verdelen of installeren.
 Door de APK kan de applicatie op een mobiel worden geopend zonder bijvoorbeeld Google Play Store.
 
 Zet het APK bestand over naar een android mobiel in kwestie via een USB kabel of een cloud, zoals Google drive.
-Zet "Accepteer installaties van buiten af" of "Allow installation from unknown sources" aan.
-Klik op het APK bestand en installeer het op de mobiele apparaat.
+Kijk bijvoorbeeld bij je bestanden of downloads voor het apk bestand. Het apk bestand heet "app-release.apk", je zou daar op kunnen zoeken.
+Als je de APK hebt gevonden, dubbel klik dan op het APK bestand. Als het bericht "Wil je deze app installeren" te zien is, klik dan op "Installeren".
+Zet "Accepteer installaties van buiten af" of "Allow installation from unknown sources" aan als daar om wordt gevraagd.
+Zo kan het bericht "Onveilig app geblokkeerd" gegeven worden door het apparaat. 
+Mocht er om een wachtwoord worden gevraagd, dan is het wachtwoord voor de apk: "HirehubAD".
+Als je de apk rechten hebt gegeven om het te installeren en de installatie gelukt is, dan zal HireHub als applicatie tussen de andere applicaties zijn.
+Klik op het blauwe icoontje van de HireHub applicatie om het te starten.
+
 
 ## Gebruik
 Na de installatie en het starten van de applicatie kunnen de functies van HireHub worden gebruikt.
