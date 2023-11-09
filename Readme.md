@@ -76,12 +76,33 @@ Door de APK kan de applicatie op een mobiel worden geopend zonder bijvoorbeeld G
 
 Zet het APK bestand over naar een android mobiel in kwestie via een USB kabel of een cloud, zoals Google drive.
 Zet "Accepteer installaties van buiten af" of "Allow installation from unknown sources" aan.
+Klik op het APK bestand en installeer het op de mobiele apparaat.
 
 ## Gebruik
 Na de installatie en het starten van de applicatie kunnen de functies van HireHub worden gebruikt.
 De applicatie heeft twee thema's: Een nacht en dag stand. Afhankelijk van hoe de installatie is gedaan en op welke "Virtual Machine"
 de applicatie wordt getoond, kunnen de kleuren verschillen.
 Voor de rest van de uitleg zal voor context de voorbeelden van de applicatie in dag-stand zijn.
+
+## Rechten
+Om een bepaalde type en rol te simuleren is er aan de database een paar voorafgemaakte fictieve gebruikers toegevoegd.
+3 Gebruikers voor iedere rol en een handje vol sollicitanten om de pagina's te vullen.
+Met deze rollen kan worden ingelogd en de verschillende rechten kan dan worden getest.
+
+De drie rollen zijn als volgt:
+
+| Username    | Password        | Role |  
+|-------------|-----------------|------|
+| KopjeKoffie | Sollicitant1324 | SOL  | 
+| PindaReep   | Recruiter1234   | REC  | 
+| Kauwgumpje  | Admin1234       | AD   |
+
+#### Gebruiker/Sollicitant
+De gebruiker staat bekend in de applicatie als "SOL" of "Sol", een afkorting voor Sollicitant.
+#### Recruiter
+De recruiter staat bekend in de applicatie als "REC" of "Rec", een afkorting voor Recruiter.
+#### Admin
+Een admin staat bekend in de applicatie als "AD" of "Ad", een afkorting voor Admin.
 
 #### Home
 Als eerste kom je op de begin pagina terecht, waar alle profielen van de gebruikers worden getoond.
@@ -104,7 +125,19 @@ Als een admin is ingelogd, dan zal het menu aan de onderkant veranderen en er in
 
 
 #### Accountpagina
-...Vul in als af is
+Als een gebruiker is ingelogd, dan kan de gebruiker door het account icoontje rechtsbovenin het menu te klikken,
+terecht komen op zijn account pagina. Op de Account pagina zijn 4 opties: Wachtwoord veranderen, account verwijderen, uitloggen en terug naar de homepage.
+
+![account pagina](https://i.imgur.com/KSCUDYH.png)
+
+De gebruiker kan zijn oude wachtwoord veranderen naar een nieuw wachtwoord. Als het wachtwoord is opgeslagen,
+dan wordt de gebruiker terug gestuurd naar de accountpagina.
+
+![wachtwoord veranderen](https://i.imgur.com/ABZJ1rk.png)
+
+Als de gebruiker zijn account wil verwijderen dan krijg je een bevestigings bericht. Daarna wordt je terug gestuurd naar de beginpagina.
+Ook met de logout knop ga je terug naar de homepagina.
+De terugknop is vanzelfsprekend en stuurt net als de anderen de gebruiker terug naar de homepagina.
 
 #### Profiel gebruiker
 Als de gebruiker is ingelogd dan kan de gebruiker via de profielknop rechtsonderin op de homepagina menu naar zijn profiel pagina gaan.
@@ -136,26 +169,6 @@ Op elke gebruiker kan worden gedrukt om de gegevens aan te passen.
 
 De admin kan een nieuw profiel aanmaken door de "New User" knop aan te klikken. Als er dan gegevens worden ingevuld en op de "Save" knop wordt gedrukt, dan is er een aangemaakt.
 Met de "Back" knop kan de admin een stap terug.
-
-## Rechten
-Om een bepaalde type en rol te simuleren is er aan de database een paar voorafgemaakte fictieve gebruikers toegevoegd.
-3 Gebruikers voor iedere rol en een handje vol sollicitanten om de pagina's te vullen.
-Met deze rollen kan worden ingelogd en de verschillende rechten kan dan worden getest.
-
-De drie rollen zijn als volgt:
-
-| Username    | Password        | Role |  
-|-------------|-----------------|------|
-| KopjeKoffie | Sollicitant1324 | SOL  | 
-| PindaReep   | Recruiter1234   | REC  | 
-| Kauwgumpje  | Admin1234       | AD   |
-
-#### Gebruiker/Sollicitant
-De gebruiker staat bekend in de applicatie als "SOL" of "Sol", een afkorting voor Sollicitant.
-#### Recruiter
-De recruiter staat bekend in de applicatie als "REC" of "Rec", een afkorting voor Recruiter.
-#### Admin
-Een admin staat bekend in de applicatie als "AD" of "Ad", een afkorting voor Admin.
 
 ## Comply or complain
 
