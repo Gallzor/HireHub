@@ -98,7 +98,7 @@ De drie rollen zijn als volgt:
 
 | Username    | Password        | Role |  
 |-------------|-----------------|------|
-| KopjeKoffie | Sollicitant1324 | SOL  | 
+| KopjeKoffie | Sollicitant1234 | SOL  | 
 | PindaReep   | Recruiter1234   | REC  | 
 | Kauwgumpje  | Admin1234       | AD   |
 
